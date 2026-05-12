@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shannon's Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#1a2e35;--teal:#2a7c6f;--teal-light:#3aa897;--coral:#e8714a;
+  --pink:#f0a89a;--green-dark:#1e4d3a;--green-mid:#2d6e50;--sand:#fdf0e8;
+  --white:#fff;--shadow:0 6px 30px rgba(0,0,0,0.22)
+}
+body{font-family:'Lato',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:var(--navy);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='1000'%3E%3Cellipse cx='0' cy='200' rx='30' ry='130' fill='%232a7c6f' opacity='.85' transform='rotate(-25 0 200)'/%3E%3Cellipse cx='40' cy='150' rx='22' ry='100' fill='%231e4d3a' opacity='.9' transform='rotate(20 40 150)'/%3E%3Cellipse cx='80' cy='250' rx='18' ry='85' fill='%233aa897' opacity='.7' transform='rotate(-40 80 250)'/%3E%3Cellipse cx='960' cy='180' rx='28' ry='125' fill='%232a7c6f' opacity='.8' transform='rotate(30 960 180)'/%3E%3Cellipse cx='1000' cy='130' rx='20' ry='95' fill='%231e4d3a' opacity='.85' transform='rotate(-18 1000 130)'/%3E%3Cellipse cx='920' cy='280' rx='22' ry='100' fill='%233aa897' opacity='.65' transform='rotate(45 920 280)'/%3E%3Cellipse cx='10' cy='700' rx='25' ry='110' fill='%232d6e50' opacity='.8' transform='rotate(22 10 700)'/%3E%3Cellipse cx='60' cy='780' rx='18' ry='80' fill='%233aa897' opacity='.7' transform='rotate(-30 60 780)'/%3E%3Cellipse cx='950' cy='720' rx='26' ry='115' fill='%232a7c6f' opacity='.75' transform='rotate(-28 950 720)'/%3E%3Cellipse cx='990' cy='800' rx='18' ry='78' fill='%231e4d3a' opacity='.8' transform='rotate(35 990 800)'/%3E%3Cellipse cx='250' cy='0' rx='110' ry='22' fill='%231e4d3a' opacity='.7' transform='rotate(8 250 0)'/%3E%3Cellipse cx='400' cy='10' rx='90' ry='18' fill='%232a7c6f' opacity='.65' transform='rotate(-12 400 10)'/%3E%3Cellipse cx='650' cy='5' rx='100' ry='20' fill='%232d6e50' opacity='.7' transform='rotate(6 650 5)'/%3E%3Cellipse cx='300' cy='1000' rx='100' ry='22' fill='%232a7c6f' opacity='.7' transform='rotate(-8 300 1000)'/%3E%3Cellipse cx='550' cy='995' rx='90' ry='18' fill='%231e4d3a' opacity='.65' transform='rotate(10 550 995)'/%3E%3Cellipse cx='780' cy='1000' rx='95' ry='20' fill='%233aa897' opacity='.6' transform='rotate(-5 780 1000)'/%3E%3Ccircle cx='130' cy='90' r='42' fill='%23e8714a' opacity='.82'/%3E%3Cellipse cx='130' cy='48' rx='18' ry='36' fill='%23e8714a' opacity='.75'/%3E%3Cellipse cx='130' cy='132' rx='18' ry='36' fill='%23e8714a' opacity='.75'/%3E%3Cellipse cx='88' cy='90' rx='36' ry='18' fill='%23e8714a' opacity='.75'/%3E%3Cellipse cx='172' cy='90' rx='36' ry='18' fill='%23e8714a' opacity='.75'/%3E%3Ccircle cx='130' cy='90' r='18' fill='%23f0a89a' opacity='.9'/%3E%3Ccircle cx='130' cy='90' r='8' fill='%23fff' opacity='.5'/%3E%3Ccircle cx='870' cy='100' r='40' fill='%23e8714a' opacity='.8'/%3E%3Cellipse cx='870' cy='60' rx='17' ry='34' fill='%23e8714a' opacity='.72'/%3E%3Cellipse cx='870' cy='140' rx='17' ry='34' fill='%23e8714a' opacity='.72'/%3E%3Cellipse cx='830' cy='100' rx='34' ry='17' fill='%23e8714a' opacity='.72'/%3E%3Cellipse cx='910' cy='100' rx='34' ry='17' fill='%23e8714a' opacity='.72'/%3E%3Ccircle cx='870' cy='100' r='17' fill='%23f0a89a' opacity='.88'/%3E%3Ccircle cx='870' cy='100' r='7' fill='%23fff' opacity='.5'/%3E%3Ccircle cx='100' cy='880' r='38' fill='%23f0a89a' opacity='.78'/%3E%3Cellipse cx='100' cy='842' rx='16' ry='32' fill='%23f0a89a' opacity='.7'/%3E%3Cellipse cx='100' cy='918' rx='16' ry='32' fill='%23f0a89a' opacity='.7'/%3E%3Cellipse cx='62' cy='880' rx='32' ry='16' fill='%23f0a89a' opacity='.7'/%3E%3Cellipse cx='138' cy='880' rx='32' ry='16' fill='%23f0a89a' opacity='.7'/%3E%3Ccircle cx='100' cy='880' r='16' fill='%23fff' opacity='.35'/%3E%3Ccircle cx='880' cy='900' r='40' fill='%23e8714a' opacity='.8'/%3E%3Cellipse cx='880' cy='860' rx='17' ry='34' fill='%23e8714a' opacity='.72'/%3E%3Cellipse cx='880' cy='940' rx='17' ry='34' fill='%23e8714a' opacity='.72'/%3E%3Cellipse cx='840' cy='900' rx='34' ry='17' fill='%23e8714a' opacity='.72'/%3E%3Cellipse cx='920' cy='900' rx='34' ry='17' fill='%23e8714a' opacity='.72'/%3E%3Ccircle cx='880' cy='900' r='16' fill='%23f0a89a' opacity='.88'/%3E%3Ccircle cx='880' cy='900' r='7' fill='%23fff' opacity='.45'/%3E%3Ccircle cx='500' cy='25' r='26' fill='%23f0a89a' opacity='.72'/%3E%3Cellipse cx='500' cy='0' rx='11' ry='22' fill='%23f0a89a' opacity='.62'/%3E%3Cellipse cx='474' cy='25' rx='22' ry='11' fill='%23f0a89a' opacity='.62'/%3E%3Cellipse cx='526' cy='25' rx='22' ry='11' fill='%23f0a89a' opacity='.62'/%3E%3Ccircle cx='500' cy='25' r='10' fill='%23fff' opacity='.35'/%3E%3Ccircle cx='20' cy='500' r='28' fill='%23e8714a' opacity='.65'/%3E%3Cellipse cx='20' cy='472' rx='12' ry='24' fill='%23e8714a' opacity='.58'/%3E%3Cellipse cx='20' cy='528' rx='12' ry='24' fill='%23e8714a' opacity='.58'/%3E%3Cellipse cx='-8' cy='500' rx='24' ry='12' fill='%23e8714a' opacity='.58'/%3E%3Cellipse cx='48' cy='500' rx='24' ry='12' fill='%23e8714a' opacity='.58'/%3E%3Ccircle cx='20' cy='500' r='11' fill='%23f0a89a' opacity='.8'/%3E%3Ccircle cx='980' cy='500' r='26' fill='%23f0a89a' opacity='.68'/%3E%3Cellipse cx='980' cy='474' rx='11' ry='22' fill='%23f0a89a' opacity='.58'/%3E%3Cellipse cx='980' cy='526' rx='11' ry='22' fill='%23f0a89a' opacity='.58'/%3E%3Cellipse cx='954' cy='500' rx='22' ry='11' fill='%23f0a89a' opacity='.58'/%3E%3Ccircle cx='980' cy='500' r='10' fill='%23fff' opacity='.3'/%3E%3C/svg%3E");background-repeat:repeat;background-size:1000px 1000px}
+
+/* NAV */
+nav{background:rgba(26,46,53,0.96);backdrop-filter:blur(10px);position:sticky;top:0;z-index:200;border-bottom:1px solid rgba(58,168,151,0.3);padding:0 1rem}
+.nav-inner{max-width:960px;margin:auto;display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{font-family:'Dancing Script',cursive;font-size:1.5rem;color:var(--coral);cursor:pointer;white-space:nowrap}
+.logo span{color:var(--teal-light)}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap}
+.nav-links button{background:none;border:none;font-family:'Lato',sans-serif;font-size:0.75rem;letter-spacing:0.8px;text-transform:uppercase;color:rgba(255,255,255,0.7);padding:6px 10px;border-radius:6px;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.nav-links button:hover,.nav-links button.active{background:var(--coral);color:#fff}
+.cart-btn{background:var(--teal)!important;color:#fff!important;position:relative}
+.cart-count{position:absolute;top:-5px;right:-5px;background:var(--coral);color:#fff;border-radius:50%;width:17px;height:17px;font-size:9px;display:flex;align-items:center;justify-content:center}
+.lang-btn{background:rgba(255,255,255,0.08)!important;border:1px solid rgba(255,255,255,0.2)!important;font-size:0.7rem!important}
+
+/* PAGES */
+.page{display:none;max-width:960px;margin:auto;padding:2rem 1.2rem}
+.page.active{display:block}
+
+/* SPECIAL BANNER */
+.special-banner{background:linear-gradient(90deg,var(--coral),#c45a35);border-radius:12px;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;gap:1rem;flex-wrap:wrap}
+.special-banner.hidden{display:none}
+.special-text{display:flex;align-items:center;gap:10px}
+.special-text span{font-size:1.4rem}
+.special-text div strong{font-size:0.95rem;display:block}
+.special-text div p{font-size:0.82rem;opacity:0.85;font-weight:300}
+.special-close{background:rgba(255,255,255,0.2);border:none;color:#fff;border-radius:50%;width:26px;height:26px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* HERO */
+.hero{position:relative;text-align:center;padding:3.5rem 2rem 2.5rem;overflow:hidden;border-radius:22px;background:rgba(30,77,58,0.7);backdrop-filter:blur(6px);margin-bottom:1.5rem;border:1px solid rgba(58,168,151,0.25)}
+.hero-flowers-row{font-size:2rem;letter-spacing:6px;margin-bottom:1rem}
+.hero h1{font-family:'Dancing Script',cursive;font-size:3.6rem;color:var(--coral);margin-bottom:0.3rem;text-shadow:0 2px 20px rgba(232,113,74,0.3)}
+.hero-tagline{font-size:1rem;color:rgba(255,255,255,0.8);max-width:460px;margin:0 auto 0.5rem;line-height:1.7;font-weight:300}
+.hero-location{font-size:0.78rem;color:var(--teal-light);letter-spacing:2px;text-transform:uppercase;margin-bottom:1.8rem}
+.hero-btns{display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap}
+.btn{padding:11px 26px;border-radius:50px;border:none;font-family:'Lato',sans-serif;font-size:0.82rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all 0.25s;font-weight:700}
+.btn-coral{background:var(--coral);color:#fff;box-shadow:0 4px 15px rgba(232,113,74,0.3)}
+.btn-coral:hover{background:#d4603a;transform:translateY(-2px)}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-teal:hover{background:#236559;transform:translateY(-2px)}
+.btn-outline{background:transparent;border:1.5px solid rgba(255,255,255,0.35);color:#fff}
+.btn-outline:hover{background:rgba(255,255,255,0.1)}
+
+/* POINTS WIDGET (home) */
+.points-widget{background:linear-gradient(135deg,rgba(42,124,111,0.5),rgba(30,77,58,0.6));border:1px solid rgba(58,168,151,0.3);border-radius:16px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1.2rem;margin-bottom:1.5rem;backdrop-filter:blur(4px)}
+.points-icon{font-size:2.5rem;flex-shrink:0}
+.points-info{flex:1}
+.points-info h3{font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;color:var(--teal-light);margin-bottom:0.2rem}
+.points-info p{font-size:0.82rem;color:rgba(255,255,255,0.6);font-weight:300}
+.points-badge{background:var(--coral);color:#fff;border-radius:50px;padding:6px 16px;font-family:'Dancing Script',cursive;font-size:1.4rem;white-space:nowrap}
+
+/* FEATURES */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:1.5rem}
+.feat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(58,168,151,0.2);border-radius:14px;padding:1.3rem;text-align:center;transition:all 0.2s;backdrop-filter:blur(4px)}
+.feat-card:hover{background:rgba(58,168,151,0.1);transform:translateY(-3px)}
+.feat-icon{font-size:1.8rem;margin-bottom:0.5rem}
+.feat-card h3{font-size:0.78rem;color:var(--teal-light);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:0.3rem}
+.feat-card p{font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.5;font-weight:300}
+
+/* SECTION TITLES */
+.section-title{font-family:'Dancing Script',cursive;font-size:2.1rem;color:var(--coral);margin-bottom:0.2rem}
+.section-sub{color:rgba(255,255,255,0.5);margin-bottom:1.4rem;font-size:0.88rem;font-weight:300}
+.leaf-divider{text-align:center;font-size:1.2rem;letter-spacing:6px;margin:1.2rem 0;opacity:0.45}
+
+/* ABOUT */
+.about-card{background:rgba(30,77,58,0.6);border:1px solid rgba(58,168,151,0.2);border-radius:18px;padding:2rem;display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;backdrop-filter:blur(4px)}
+.about-avatar{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,var(--coral),var(--teal));display:flex;align-items:center;justify-content:center;font-size:3.5rem;border:3px solid rgba(232,113,74,0.4);flex-shrink:0}
+.about-card h2{font-family:'Dancing Script',cursive;font-size:2.2rem;color:var(--coral);margin-bottom:0.8rem}
+.about-card p{line-height:1.8;color:rgba(255,255,255,0.75);margin-bottom:0.7rem;font-size:0.92rem;font-weight:300}
+.badge-row{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.8rem}
+.badge{background:rgba(58,168,151,0.15);color:var(--teal-light);border:1px solid rgba(58,168,151,0.3);border-radius:50px;padding:3px 12px;font-size:0.76rem}
+
+/* GALLERY */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.8rem}
+.gallery-item{border-radius:12px;overflow:hidden;aspect-ratio:1;background:rgba(30,77,58,0.5);display:flex;align-items:center;justify-content:center;font-size:3.5rem;cursor:pointer;transition:all 0.2s;border:1px solid rgba(58,168,151,0.15);position:relative}
+.gallery-item img{width:100%;height:100%;object-fit:cover}
+.gallery-item:hover{transform:scale(1.03);border-color:var(--coral)}
+.gallery-item .overlay{position:absolute;inset:0;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s}
+.gallery-item:hover .overlay{opacity:1}
+.gallery-caption{font-size:0.8rem;color:#fff;text-align:center;padding:0.5rem}
+
+/* MENU */
+.category-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.3rem}
+.tab{padding:7px 18px;border-radius:50px;border:1px solid rgba(58,168,151,0.35);background:none;font-family:'Lato',sans-serif;font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.6);cursor:pointer;transition:all 0.2s}
+.tab.active,.tab:hover{background:var(--coral);border-color:var(--coral);color:#fff}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.1rem}
+.menu-card{background:rgba(30,77,58,0.65);border:1px solid rgba(58,168,151,0.15);border-radius:14px;overflow:hidden;transition:all 0.25s;backdrop-filter:blur(4px)}
+.menu-card:hover{transform:translateY(-4px);border-color:rgba(232,113,74,0.35);box-shadow:0 10px 30px rgba(0,0,0,0.3)}
+.menu-img{height:145px;display:flex;align-items:center;justify-content:center;font-size:3.8rem;background:linear-gradient(135deg,rgba(30,77,58,0.8),rgba(26,46,53,0.9));overflow:hidden;position:relative}
+.menu-img img{width:100%;height:100%;object-fit:cover}
+.menu-body{padding:1rem}
+.menu-body h3{font-size:0.95rem;color:#fff;margin-bottom:0.25rem;font-weight:700}
+.menu-body p{font-size:0.8rem;color:rgba(255,255,255,0.5);line-height:1.5;margin-bottom:0.8rem;font-weight:300}
+.menu-footer{display:flex;align-items:center;justify-content:space-between}
+.price{font-family:'Dancing Script',cursive;font-size:1.2rem;color:var(--coral)}
+.add-btn{background:var(--teal);color:#fff;border:none;border-radius:50px;padding:6px 16px;font-size:0.78rem;cursor:pointer;font-family:'Lato',sans-serif;transition:all 0.2s;font-weight:700}
+.add-btn:hover{background:var(--teal-light)}
+.points-tag{font-size:0.7rem;color:var(--teal-light);margin-top:4px}
+
+/* REVIEWS */
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;margin-bottom:1.5rem}
+.review-card{background:rgba(30,77,58,0.55);border:1px solid rgba(58,168,151,0.18);border-radius:14px;padding:1.2rem;backdrop-filter:blur(4px)}
+.review-stars{color:#f5c518;font-size:1rem;margin-bottom:0.5rem;letter-spacing:2px}
+.review-text{font-size:0.88rem;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:0.8rem;font-style:italic;font-weight:300}
+.review-author{font-size:0.78rem;color:var(--teal-light);font-weight:700;letter-spacing:0.5px}
+.review-form{background:rgba(30,77,58,0.55);border:1px solid rgba(58,168,151,0.2);border-radius:14px;padding:1.3rem;backdrop-filter:blur(4px)}
+.review-form h3{font-family:'Dancing Script',cursive;font-size:1.5rem;color:var(--coral);margin-bottom:1rem}
+.star-select{display:flex;gap:6px;margin-bottom:0.5rem}
+.star-select span{font-size:1.6rem;cursor:pointer;opacity:0.35;transition:all 0.15s}
+.star-select span.active{opacity:1}
+
+/* LOYALTY */
+.loyalty-hero{background:linear-gradient(135deg,rgba(42,124,111,0.5),rgba(30,77,58,0.7));border:1px solid rgba(58,168,151,0.3);border-radius:18px;padding:2rem;text-align:center;margin-bottom:1.5rem;backdrop-filter:blur(4px)}
+.loyalty-hero h2{font-family:'Dancing Script',cursive;font-size:2.5rem;color:var(--coral);margin-bottom:0.5rem}
+.loyalty-hero p{color:rgba(255,255,255,0.65);font-size:0.9rem;font-weight:300;line-height:1.7;max-width:500px;margin:0 auto 1.5rem}
+.points-display{font-family:'Dancing Script',cursive;font-size:4rem;color:var(--coral);margin:0.5rem 0}
+.points-label{font-size:0.78rem;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4)}
+.progress-bar{background:rgba(255,255,255,0.1);border-radius:50px;height:10px;margin:1rem auto;max-width:320px;overflow:hidden}
+.progress-fill{background:linear-gradient(90deg,var(--teal),var(--coral));height:100%;border-radius:50px;transition:width 0.5s}
+.rewards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:1.5rem}
+.reward-card{background:rgba(30,77,58,0.55);border:1px solid rgba(58,168,151,0.2);border-radius:14px;padding:1.2rem;text-align:center;backdrop-filter:blur(4px)}
+.reward-card .r-icon{font-size:2rem;margin-bottom:0.5rem}
+.reward-card h4{font-size:0.88rem;color:#fff;margin-bottom:0.3rem}
+.reward-card p{font-size:0.78rem;color:rgba(255,255,255,0.5);font-weight:300;margin-bottom:0.8rem}
+.reward-card .pts{font-family:'Dancing Script',cursive;font-size:1.3rem;color:var(--coral);display:block;margin-bottom:0.5rem}
+.redeem-btn{background:none;border:1.5px solid var(--coral);color:var(--coral);border-radius:50px;padding:5px 16px;font-size:0.78rem;cursor:pointer;font-family:'Lato',sans-serif;transition:all 0.2s}
+.redeem-btn:hover:not(:disabled){background:var(--coral);color:#fff}
+.redeem-btn:disabled{opacity:0.35;cursor:not-allowed;border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.2)}
+.points-history{background:rgba(30,77,58,0.55);border:1px solid rgba(58,168,151,0.18);border-radius:14px;padding:1.2rem}
+.points-history h3{font-family:'Dancing Script',cursive;font-size:1.4rem;color:var(--coral);margin-bottom:0.8rem}
+.history-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:0.84rem}
+.history-row:last-child{border:none}
+.history-row .pts-earned{color:var(--teal-light);font-weight:700}
+.history-row .pts-spent{color:var(--coral);font-weight:700}
+
+/* CATERING */
+.catering-hero{background:linear-gradient(135deg,rgba(30,77,58,0.7),rgba(26,46,53,0.8));border:1px solid rgba(58,168,151,0.2);border-radius:18px;padding:2rem;text-align:center;margin-bottom:1.5rem}
+.catering-hero h2{font-family:'Dancing Script',cursive;font-size:2.3rem;color:var(--coral);margin-bottom:0.5rem}
+.catering-hero p{color:rgba(255,255,255,0.65);font-size:0.9rem;font-weight:300;line-height:1.7;max-width:500px;margin:0 auto}
+.catering-packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1.5rem}
+.pkg-card{background:rgba(30,77,58,0.55);border:1px solid rgba(58,168,151,0.2);border-radius:14px;padding:1.3rem;text-align:center;backdrop-filter:blur(4px);transition:all 0.2s}
+.pkg-card:hover{border-color:var(--coral);transform:translateY(-3px)}
+.pkg-card .pkg-icon{font-size:2.2rem;margin-bottom:0.6rem}
+.pkg-card h4{font-size:1rem;color:#fff;margin-bottom:0.3rem}
+.pkg-card .pkg-size{font-size:0.78rem;color:var(--teal-light);margin-bottom:0.5rem;font-weight:300}
+.pkg-card p{font-size:0.8rem;color:rgba(255,255,255,0.55);line-height:1.5;margin-bottom:0.8rem;font-weight:300}
+.pkg-card .pkg-price{font-family:'Dancing Script',cursive;font-size:1.5rem;color:var(--coral)}
+.catering-form{background:rgba(30,77,58,0.55);border:1px solid rgba(58,168,151,0.2);border-radius:14px;padding:1.5rem}
+.catering-form h3{font-family:'Dancing Script',cursive;font-size:1.6rem;color:var(--coral);margin-bottom:1rem}
+
+/* ORDER */
+.cart-empty{text-align:center;padding:2.5rem;color:rgba(255,255,255,0.45)}
+.order-layout{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.cart-section,.order-form{background:rgba(30,77,58,0.6);border:1px solid rgba(58,168,151,0.2);border-radius:14px;padding:1.4rem;backdrop-filter:blur(4px)}
+.cart-section h3,.order-form h3{font-family:'Dancing Script',cursive;font-size:1.4rem;color:var(--coral);margin-bottom:0.8rem}
+.cart-item{display:flex;align-items:center;gap:0.8rem;padding:0.7rem 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.cart-item-thumb{width:40px;height:40px;border-radius:7px;object-fit:cover;background:rgba(58,168,151,0.15);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;overflow:hidden}
+.cart-item-info{flex:1}
+.cart-item-info h4{font-size:0.87rem;color:#fff;margin-bottom:1px}
+.cart-item-info p{font-size:0.76rem;color:rgba(255,255,255,0.4)}
+.qty-ctrl{display:flex;align-items:center;gap:6px}
+.qty-btn{width:24px;height:24px;border-radius:50%;border:1px solid var(--coral);background:none;color:var(--coral);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all 0.2s}
+.qty-btn:hover{background:var(--coral);color:#fff}
+.remove-btn{background:none;border:none;color:rgba(255,255,255,0.18);cursor:pointer;font-size:1rem}
+.remove-btn:hover{color:#e24b4a}
+.cart-total{border-top:1px solid rgba(255,255,255,0.08);margin-top:0.8rem;padding-top:0.8rem;text-align:right}
+.cart-total span{font-family:'Dancing Script',cursive;font-size:1.6rem;color:var(--coral)}
+.cart-points-earn{font-size:0.78rem;color:var(--teal-light);text-align:right;margin-top:4px}
+label{display:block;font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:4px;margin-top:12px}
+input,textarea,select{width:100%;padding:9px 12px;border:1px solid rgba(58,168,151,0.22);border-radius:7px;font-family:'Lato',sans-serif;font-size:0.88rem;background:rgba(255,255,255,0.05);color:#fff;outline:none;transition:border 0.2s}
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,0.22)}
+input:focus,textarea:focus,select:focus{border-color:var(--teal-light)}
+select option{background:#1a2e35}
+textarea{resize:vertical;min-height:70px}
+.submit-btn{width:100%;margin-top:1.3rem;padding:13px;border-radius:50px;background:var(--coral);color:#fff;border:none;font-family:'Lato',sans-serif;font-size:0.85rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;cursor:pointer;transition:all 0.2s}
+.submit-btn:hover{background:#d4603a;transform:translateY(-1px)}
+.submit-btn:disabled{background:rgba(255,255,255,0.12);cursor:not-allowed;transform:none}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem}
+.contact-card{background:rgba(30,77,58,0.6);border:1px solid rgba(58,168,151,0.2);border-radius:14px;padding:1.3rem;backdrop-filter:blur(4px)}
+.contact-card h3{font-family:'Dancing Script',cursive;font-size:1.5rem;color:var(--coral);margin-bottom:0.9rem}
+.contact-row{display:flex;align-items:flex-start;gap:0.7rem;margin-bottom:0.8rem}
+.contact-icon{font-size:1.1rem;margin-top:2px}
+.contact-row div{font-size:0.86rem;line-height:1.5;color:rgba(255,255,255,0.6);font-weight:300}
+.contact-row strong{color:#fff;font-size:0.88rem}
+.hours-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:0.83rem}
+.hours-row:last-child{border:none}
+.open{color:var(--teal-light);font-weight:700}
+.closed-day{color:rgba(255,255,255,0.28)}
+.map-box{background:rgba(26,46,53,0.5);border-radius:10px;height:140px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.4rem;border:1px solid rgba(58,168,151,0.12);margin-top:0.8rem}
+.map-box p{font-size:0.82rem;color:rgba(255,255,255,0.4)}
+.whatsapp-btn{display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;border:none;border-radius:50px;padding:11px 22px;font-family:'Lato',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;transition:all 0.2s;text-decoration:none;letter-spacing:0.5px}
+.whatsapp-btn:hover{background:#1da851;transform:translateY(-2px)}
+
+/* ADMIN */
+.admin-login-wrap{max-width:340px;margin:3rem auto}
+.admin-login{background:rgba(30,77,58,0.7);border:1px solid rgba(58,168,151,0.2);border-radius:18px;padding:2rem;text-align:center;backdrop-filter:blur(4px)}
+.admin-login h2{font-family:'Dancing Script',cursive;font-size:2rem;color:var(--coral);margin-bottom:0.4rem}
+.admin-panel{background:rgba(30,77,58,0.6);border:1px solid rgba(58,168,151,0.18);border-radius:14px;padding:1.3rem;margin-bottom:1.3rem;backdrop-filter:blur(4px)}
+.admin-panel h3{font-family:'Dancing Script',cursive;font-size:1.4rem;color:var(--coral);margin-bottom:0.9rem}
+.admin-items{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:0.8rem}
+.admin-item{display:flex;align-items:center;gap:0.9rem;padding:0.8rem;background:rgba(255,255,255,0.03);border-radius:9px;border:1px solid rgba(58,168,151,0.1)}
+.admin-item-img{width:44px;height:44px;border-radius:7px;object-fit:cover;background:rgba(58,168,151,0.1);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;overflow:hidden}
+.admin-item-info{flex:1}
+.admin-item-info strong{font-size:0.88rem;display:block;color:#fff}
+.admin-item-info span{font-size:0.76rem;color:rgba(255,255,255,0.38)}
+.admin-item-actions{display:flex;gap:5px;align-items:center}
+.icon-btn{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:4px 10px;cursor:pointer;font-size:0.75rem;color:rgba(255,255,255,0.55);font-family:'Lato',sans-serif;transition:all 0.2s}
+.icon-btn:hover{border-color:var(--coral);color:var(--coral)}
+.icon-btn.del:hover{border-color:#e24b4a;color:#e24b4a}
+.toggle-available{background:none;border:none;cursor:pointer;font-size:1rem;padding:3px}
+.add-dish-form{background:rgba(255,255,255,0.03);border-radius:10px;padding:1.1rem;border:1px dashed rgba(58,168,151,0.22)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.7rem}
+.photo-upload{border:1.5px dashed rgba(58,168,151,0.28);border-radius:9px;padding:1rem;text-align:center;cursor:pointer;transition:all 0.2s;background:rgba(255,255,255,0.02);position:relative}
+.photo-upload:hover{border-color:var(--teal-light)}
+.photo-upload input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.photo-upload p{font-size:0.8rem;color:rgba(255,255,255,0.35);font-weight:300}
+.photo-preview{width:100%;height:100px;object-fit:cover;border-radius:7px;margin-top:0.5rem;display:none}
+.save-btn{background:var(--teal);color:#fff;border:none;border-radius:50px;padding:9px 22px;font-family:'Lato',sans-serif;font-size:0.82rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;margin-top:0.8rem;font-weight:700;transition:all 0.2s}
+.save-btn:hover{background:var(--teal-light)}
+.logout-btn{background:none;border:1px solid rgba(255,255,255,0.14);border-radius:50px;padding:7px 18px;font-family:'Lato',sans-serif;font-size:0.8rem;cursor:pointer;color:rgba(255,255,255,0.45);transition:all 0.2s}
+.logout-btn:hover{border-color:var(--coral);color:var(--coral)}
+.special-admin{background:rgba(232,113,74,0.1);border:1px solid rgba(232,113,74,0.25);border-radius:10px;padding:1rem}
+.special-admin input{margin-bottom:0.5rem}
+
+/* MODALS */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:999;align-items:center;justify-content:center;backdrop-filter:blur(5px)}
+.modal-overlay.show{display:flex}
+.modal-box{background:var(--green-dark);border:1px solid rgba(58,168,151,0.25);border-radius:18px;padding:2rem;text-align:center;max-width:360px;width:90%;max-height:90vh;overflow-y:auto}
+.modal-box.left{text-align:left;max-width:420px}
+.modal-box .big-emoji{font-size:2.8rem;margin-bottom:0.6rem}
+.modal-box h2{font-family:'Dancing Script',cursive;font-size:1.9rem;color:var(--coral);margin-bottom:0.5rem}
+.modal-box p{color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:1.3rem;font-size:0.88rem;font-weight:300}
+.spinner{display:inline-block;width:15px;height:15px;border:2px solid rgba(255,255,255,0.35);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:middle;margin-right:7px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* FLOATING WHATSAPP */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:300;background:#25D366;color:#fff;border:none;border-radius:50%;width:56px;height:56px;font-size:1.6rem;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,0.4);display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.wa-float:hover{transform:scale(1.1);background:#1da851}
+.wa-tooltip{position:fixed;bottom:90px;right:20px;z-index:300;background:rgba(26,46,53,0.95);color:#fff;font-size:0.78rem;padding:6px 12px;border-radius:8px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.2s;border:1px solid rgba(58,168,151,0.2)}
+.wa-float:hover~.wa-tooltip{opacity:1}
+
+@media(max-width:620px){
+  .about-card,.order-layout,.contact-grid,.form-row,.catering-packages{grid-template-columns:1fr}
+  .hero h1{font-size:2.8rem}
+  .nav-links button{font-size:0.68rem;padding:5px 7px}
+}
+</style>
+</head>
+<body>
+
+<!-- FLOATING WHATSAPP -->
+<button class="wa-float" onclick="openWhatsApp()" title="Chat on WhatsApp">💬</button>
+<div class="wa-tooltip">Chat with Shannon on WhatsApp</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo" id="logoBtn">🌺 Shannon's <span>Kitchen</span></div>
+    <div class="nav-links">
+      <button class="active" onclick="showPage('home',this)">Home</button>
+      <button onclick="showPage('about',this)">About</button>
+      <button onclick="showPage('menu',this)">Menu</button>
+      <button onclick="showPage('gallery',this)">Gallery</button>
+      <button onclick="showPage('reviews',this)">Reviews</button>
+      <button class="cart-btn" onclick="showPage('order',this)">Order <span class="cart-count" id="cartCount">0</span></button>
+      <button onclick="showPage('loyalty',this)">Points 🏅</button>
+      <button onclick="showPage('catering',this)">Catering</button>
+      <button onclick="showPage('contact',this)">Contact</button>
+      <button class="lang-btn" onclick="toggleLang()">🌐 <span id="langLabel">JP</span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="special-banner" id="specialBanner">
+    <div class="special-text"><span>🔥</span><div><strong id="specialTitle">Today's Special: Garlic Shrimp Plate — Only $12!</strong><p id="specialDesc">Limited availability — order now before it's gone 🤙</p></div></div>
+    <button class="special-close" onclick="document.getElementById('specialBanner').classList.add('hidden')">✕</button>
+  </div>
+  <div class="hero">
+    <div class="hero-flowers-row">🌸🌿🌺🌴🌸</div>
+    <h1 id="heroTitle">Shannon's Kitchen</h1>
+    <p class="hero-tagline" id="heroTagline">Homemade Hawaiian-style cooking made with aloha, fresh ingredients, and a whole lotta love.</p>
+    <p class="hero-location">📍 Kailua, O'ahu, Hawai'i</p>
+    <div class="hero-btns">
+      <button class="btn btn-coral" onclick="showPage('menu',document.querySelectorAll('.nav-links button')[2])"><span id="btnMenu">View Menu</span></button>
+      <button class="btn btn-teal" onclick="showPage('order',document.querySelectorAll('.nav-links button')[5])"><span id="btnOrder">Place an Order</span></button>
+      <button class="btn btn-outline" onclick="showPage('loyalty',document.querySelectorAll('.nav-links button')[6])">🏅 <span id="btnPoints">My Points</span></button>
+    </div>
+  </div>
+  <div id="pointsWidgetHome" class="points-widget" style="display:none">
+    <div class="points-icon">🏅</div>
+    <div class="points-info"><h3 id="pwName">Welcome back!</h3><p id="pwSub">You're earning points with every order.</p></div>
+    <div class="points-badge" id="pwBadge">0 pts</div>
+  </div>
+  <div class="leaf-divider">🌿 · 🌺 · 🌿</div>
+  <div class="features">
+    <div class="feat-card"><div class="feat-icon">🍚</div><h3 id="f1t">Home Cooked</h3><p id="f1p">Every dish made from scratch with local ingredients and real Hawaiian flavors.</p></div>
+    <div class="feat-card"><div class="feat-icon">📍</div><h3 id="f2t">Kailua Local</h3><p id="f2p">Based in Kailua, O'ahu. Pickup or local delivery available.</p></div>
+    <div class="feat-card"><div class="feat-icon">🏅</div><h3 id="f3t">Earn Points</h3><p id="f3p">Every $10 spent = 1 point. Redeem for free dishes and discounts!</p></div>
+    <div class="feat-card"><div class="feat-icon">🎉</div><h3 id="f4t">Catering</h3><p id="f4p">Feeding a crowd? Shannon caters parties, birthdays & events.</p></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <div class="about-card">
+    <div><div class="about-avatar">👩‍🍳</div></div>
+    <div>
+      <h2>Aloha, I'm Shannon!</h2>
+      <p>I'm a home cook born and raised on O'ahu, with a deep love for Hawaiian flavors, family recipes, and feeding the people I care about.</p>
+      <p>What started as cooking for neighbors has grown into something special — a little kitchen business right here in Kailua, serving plates full of aloha to the community I love.</p>
+      <p>Every dish I make carries the spirit of the islands: fresh, warm, and made with real love. From classic plate lunches to local favorites, I put my heart into every bite.</p>
+      <div class="badge-row">
+        <span class="badge">🌺 Hawaiian Cuisine</span><span class="badge">🍍 Local Ingredients</span>
+        <span class="badge">🏝️ Kailua, O'ahu</span><span class="badge">💛 Made with Aloha</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div class="page" id="page-gallery">
+  <h2 class="section-title">Food Gallery</h2>
+  <p class="section-sub">Shannon's creations — made fresh, made with love 🌺</p>
+  <div class="gallery-grid" id="galleryGrid"></div>
+  <div style="text-align:center;margin-top:1.5rem">
+    <p style="font-size:0.82rem;color:rgba(255,255,255,0.4);font-weight:300">Shannon adds new photos when dishes are fresh out of the kitchen 📸</p>
+  </div>
+</div>
+
+<!-- MENU -->
+<div class="page" id="page-menu">
+  <h2 class="section-title">Today's Menu</h2>
+  <p class="section-sub">Fresh, homemade, and made to order. Every $10 earns 1 loyalty point! 🏅</p>
+  <div class="category-tabs" id="menuTabs"></div>
+  <div class="menu-grid" id="menuGrid"></div>
+</div>
+
+<!-- REVIEWS -->
+<div class="page" id="page-reviews">
+  <h2 class="section-title">What the Neighbors Say</h2>
+  <p class="section-sub">Real reviews from real Kailua customers 🌺</p>
+  <div class="reviews-grid" id="reviewsGrid"></div>
+  <div class="review-form">
+    <h3>Leave a Review</h3>
+    <label>Your Rating</label>
+    <div class="star-select" id="starSelect">
+      <span onclick="setStars(1)">★</span><span onclick="setStars(2)">★</span>
+      <span onclick="setStars(3)">★</span><span onclick="setStars(4)">★</span><span onclick="setStars(5)">★</span>
+    </div>
+    <label>Your Name</label><input type="text" id="rName" placeholder="e.g. Keala M."/>
+    <label>Your Review</label><textarea id="rText" placeholder="Tell Shannon what you loved! 🌺" style="min-height:80px"></textarea>
+    <button class="save-btn" onclick="submitReview()">💬 Submit Review</button>
+    <p id="reviewMsg" style="font-size:0.82rem;margin-top:0.6rem;display:none"></p>
+  </div>
+</div>
+
+<!-- ORDER -->
+<div class="page" id="page-order">
+  <h2 class="section-title">Your Order</h2>
+  <p class="section-sub">Review your cart and fill in your details.</p>
+  <div id="cartEmpty" class="cart-empty" style="display:none">
+    <div style="font-size:3rem;margin-bottom:0.8rem">🛒</div>
+    <p>Your cart is empty — head to the Menu first!</p>
+    <button class="btn btn-coral" style="margin-top:1rem" onclick="showPage('menu',document.querySelectorAll('.nav-links button')[2])">Browse Menu</button>
+  </div>
+  <div class="order-layout" id="orderLayout">
+    <div class="cart-section">
+      <h3>🛒 Cart</h3>
+      <div id="cartItems"></div>
+      <div class="cart-total">Total: <span id="cartTotal">$0.00</span></div>
+      <div class="cart-points-earn" id="cartPointsEarn"></div>
+    </div>
+    <div class="order-form">
+      <h3>Your Details</h3>
+      <label>Full Name</label><input type="text" id="fname" placeholder="e.g. Kaleo Akana"/>
+      <label>Phone Number</label><input type="tel" id="fphone" placeholder="(808) 555-0100"/>
+      <label>Pickup Date & Time</label><input type="datetime-local" id="fpickup"/>
+      <label>Pickup or Delivery?</label>
+      <select id="ftype">
+        <option value="pickup">Pickup — I'll come to Shannon</option>
+        <option value="delivery">Local Delivery (Kailua area)</option>
+      </select>
+      <label>Address (if delivery)</label><input type="text" id="faddress" placeholder="Street address in Kailua"/>
+      <label>Loyalty Points Code (optional)</label><input type="text" id="fpoints" placeholder="Enter your points code"/>
+      <label>Special Requests / Allergies</label><textarea id="fnotes" placeholder="Any special requests or notes..."></textarea>
+      <button class="submit-btn" id="submitBtn" onclick="placeOrder()">🌺 Place My Order</button>
+    </div>
+  </div>
+</div>
+
+<!-- LOYALTY -->
+<div class="page" id="page-loyalty">
+  <div class="loyalty-hero">
+    <div style="font-size:2.5rem;margin-bottom:0.5rem">🏅</div>
+    <h2>Shannon's Aloha Rewards</h2>
+    <p>Every time you order, you earn points. Earn enough and get free food! It's Shannon's way of saying mahalo to her regulars 💛</p>
+    <div class="points-display" id="loyaltyPoints">0</div>
+    <div class="points-label">YOUR POINTS</div>
+    <div style="margin:0.8rem auto;max-width:320px">
+      <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:rgba(255,255,255,0.4);margin-bottom:4px"><span>0 pts</span><span>10 pts = Free Dish!</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    </div>
+    <div style="font-size:0.8rem;color:rgba(255,255,255,0.45);margin-bottom:1rem;font-weight:300">Every $10 spent = 1 point · 10 points = free dish of your choice</div>
+    <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap">
+      <div style="background:rgba(255,255,255,0.07);border-radius:10px;padding:10px 18px;text-align:center">
+        <div style="font-size:0.7rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px">Register / Check</div>
+        <input type="text" id="loyaltyName" placeholder="Your name" style="margin-top:6px;max-width:160px"/>
+        <br><button class="save-btn" style="margin-top:6px" onclick="checkLoyalty()">Check My Points</button>
+      </div>
+    </div>
+  </div>
+  <h3 style="font-family:'Dancing Script',cursive;font-size:1.6rem;color:var(--coral);margin-bottom:1rem">🎁 Rewards You Can Redeem</h3>
+  <div class="rewards-grid" id="rewardsGrid"></div>
+  <div class="points-history">
+    <h3>Points History</h3>
+    <div id="pointsHistory"><p style="font-size:0.84rem;color:rgba(255,255,255,0.35)">No history yet — place your first order to start earning! 🌺</p></div>
+  </div>
+</div>
+
+<!-- CATERING -->
+<div class="page" id="page-catering">
+  <div class="catering-hero">
+    <div style="font-size:2.5rem;margin-bottom:0.5rem">🎉</div>
+    <h2>Catering & Large Orders</h2>
+    <p>Birthday parties, graduations, family gatherings, office lunches — Shannon brings the aloha spirit to your event. Minimum 24 hours notice required.</p>
+  </div>
+  <h3 style="font-family:'Dancing Script',cursive;font-size:1.6rem;color:var(--coral);margin-bottom:1rem">📦 Packages</h3>
+  <div class="catering-packages">
+    <div class="pkg-card"><div class="pkg-icon">🌺</div><h4>Ohana Pack</h4><div class="pkg-size">Serves 10–15 people</div><p>2 main dishes + 2 sides + drinks. Perfect for small family gatherings.</p><div class="pkg-price">From $150</div></div>
+    <div class="pkg-card"><div class="pkg-icon">🌴</div><h4>Luau Pack</h4><div class="pkg-size">Serves 20–30 people</div><p>3 main dishes + 3 sides + dessert + drinks. Great for parties.</p><div class="pkg-price">From $280</div></div>
+    <div class="pkg-card"><div class="pkg-icon">🏝️</div><h4>Big Island Pack</h4><div class="pkg-size">Serves 40+ people</div><p>Full spread — 4 mains, 4 sides, desserts, drinks. Ideal for big events.</p><div class="pkg-price">From $500</div></div>
+  </div>
+  <div class="catering-form">
+    <h3>Request a Catering Quote</h3>
+    <div class="form-row">
+      <div><label>Your Name</label><input type="text" id="cName" placeholder="Full name"/></div>
+      <div><label>Phone</label><input type="tel" id="cPhone" placeholder="(808) 555-0100"/></div>
+    </div>
+    <div class="form-row">
+      <div><label>Event Date</label><input type="date" id="cDate"/></div>
+      <div><label>Number of Guests</label><input type="number" id="cGuests" placeholder="e.g. 25" min="10"/></div>
+    </div>
+    <label>Event Type</label>
+    <select id="cType"><option>Birthday Party</option><option>Graduation</option><option>Family Gathering</option><option>Office Lunch</option><option>Wedding Reception</option><option>Other</option></select>
+    <label>Package Interest</label>
+    <select id="cPkg"><option>Ohana Pack (10–15)</option><option>Luau Pack (20–30)</option><option>Big Island Pack (40+)</option><option>Custom / Not Sure Yet</option></select>
+    <label>Additional Notes</label>
+    <textarea id="cNotes" placeholder="Any dietary needs, special requests, location details..."></textarea>
+    <button class="save-btn" onclick="submitCatering()">🌺 Send Catering Request</button>
+    <p id="cateringMsg" style="font-size:0.82rem;margin-top:0.6rem;display:none"></p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <h2 class="section-title">Get in Touch</h2>
+  <p class="section-sub">Questions? Large orders? Shannon would love to hear from you!</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>Contact Info</h3>
+      <div class="contact-row"><div class="contact-icon">📞</div><div><strong>Phone / Text</strong><br>(808) 555-0188</div></div>
+      <div class="contact-row"><div class="contact-icon">📧</div><div><strong>Email</strong><br>shannon@shannonskitchen.com</div></div>
+      <div class="contact-row"><div class="contact-icon">📍</div><div><strong>Location</strong><br>Kailua, O'ahu, Hawai'i</div></div>
+      <div class="contact-row"><div class="contact-icon">📱</div><div><strong>Instagram</strong><br>@shannonskitchenhawaii</div></div>
+      <div style="margin-top:1rem">
+        <a class="whatsapp-btn" onclick="openWhatsApp()">💬 Chat on WhatsApp</a>
+      </div>
+    </div>
+    <div class="contact-card">
+      <h3>Order Hours</h3>
+      <div class="hours-row"><span>Monday</span><span class="open">10am – 7pm</span></div>
+      <div class="hours-row"><span>Tuesday</span><span class="open">10am – 7pm</span></div>
+      <div class="hours-row"><span>Wednesday</span><span class="open">10am – 7pm</span></div>
+      <div class="hours-row"><span>Thursday</span><span class="open">10am – 7pm</span></div>
+      <div class="hours-row"><span>Friday</span><span class="open">10am – 8pm</span></div>
+      <div class="hours-row"><span>Saturday</span><span class="open">9am – 6pm</span></div>
+      <div class="hours-row"><span>Sunday</span><span class="closed-day">Closed 🌴</span></div>
+      <div class="map-box"><span style="font-size:1.8rem">🗺️</span><p>Kailua, O'ahu, HI 96734</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div class="page" id="page-admin">
+  <div id="adminLogin">
+    <div class="admin-login-wrap">
+      <div class="admin-login">
+        <div style="font-size:2rem;margin-bottom:0.4rem">🔐</div>
+        <h2>Admin Area</h2>
+        <p style="color:rgba(255,255,255,0.45);font-size:0.85rem;margin-bottom:1.2rem;font-weight:300">Enter your password to manage your menu.</p>
+        <label>Password</label>
+        <input type="password" id="adminPw" placeholder="Enter password" onkeydown="if(event.key==='Enter')adminLogin()"/>
+        <button class="btn btn-coral" style="width:100%;margin-top:0.8rem" onclick="adminLogin()">Log In</button>
+        <p id="loginErr" style="color:var(--coral);font-size:0.8rem;margin-top:0.6rem;display:none">Wrong password. Try again.</p>
+      </div>
+    </div>
+  </div>
+  <div id="adminDashboard" style="display:none">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.3rem;flex-wrap:wrap;gap:0.8rem">
+      <div><h2 class="section-title">Menu Manager</h2><p class="section-sub">Add, edit, or remove dishes. Changes show instantly.</p></div>
+      <button class="logout-btn" onclick="adminLogout()">Log Out</button>
+    </div>
+    <!-- DAILY SPECIAL -->
+    <div class="admin-panel">
+      <h3>🔥 Daily Special Banner</h3>
+      <div class="special-admin">
+        <label>Special Title</label><input type="text" id="specialTitleInput" placeholder="e.g. Garlic Shrimp Plate — Only $12!"/>
+        <label>Description</label><input type="text" id="specialDescInput" placeholder="e.g. Limited availability today only!"/>
+        <div style="display:flex;gap:0.5rem;margin-top:0.5rem">
+          <button class="save-btn" onclick="updateSpecial()">💾 Update Banner</button>
+          <button class="logout-btn" onclick="hideSpecial()">Hide Banner</button>
+        </div>
+      </div>
+    </div>
+    <!-- GALLERY ADMIN -->
+    <div class="admin-panel">
+      <h3>📸 Gallery Photos (<span id="galleryCount">0</span>)</h3>
+      <div id="galleryAdminItems" style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:0.8rem"></div>
+      <div class="add-dish-form">
+        <label>Caption</label><input type="text" id="gCaption" placeholder="e.g. Fresh Kalua Pork! 🍖"/>
+        <label>Photo</label>
+        <div class="photo-upload">
+          <input type="file" accept="image/*" onchange="previewGalleryPhoto(this)"/>
+          <p id="gPhotoPrompt">📷 Tap to upload a photo</p>
+          <img id="gPhotoPreview" class="photo-preview"/>
+        </div>
+        <button class="save-btn" onclick="addGalleryPhoto()">💾 Add to Gallery</button>
+      </div>
+    </div>
+    <!-- MENU ADMIN -->
+    <div class="admin-panel">
+      <h3>🍽️ Current Dishes (<span id="dishCount">0</span>)</h3>
+      <div class="admin-items" id="adminItems"></div>
+    </div>
+    <div class="admin-panel">
+      <h3>➕ Add a New Dish</h3>
+      <div class="add-dish-form">
+        <div class="form-row">
+          <div><label>Dish Name *</label><input type="text" id="newName" placeholder="e.g. Kalua Pork Plate"/></div>
+          <div><label>Price ($) *</label><input type="number" id="newPrice" placeholder="14" min="1"/></div>
+        </div>
+        <label>Category *</label>
+        <select id="newCat"><option value="plates">Plate Lunches</option><option value="sides">Sides & Extras</option><option value="desserts">Desserts</option><option value="drinks">Drinks</option></select>
+        <label>Description</label><textarea id="newDesc" placeholder="Describe the dish..." style="min-height:55px"></textarea>
+        <label>Photo (optional)</label>
+        <div class="photo-upload">
+          <input type="file" accept="image/*" onchange="previewPhoto(this)"/>
+          <p id="photoUploadPrompt">📷 Tap to upload a photo</p>
+          <img id="photoPreview" class="photo-preview"/>
+        </div>
+        <button class="save-btn" onclick="addDish()">💾 Save Dish to Menu</button>
+        <p id="addMsg" style="font-size:0.8rem;margin-top:0.4rem;display:none"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal-box">
+    <div class="big-emoji">🌺</div>
+    <h2>Order Received!</h2>
+    <p>Mahalo! Shannon got your order and will reach out shortly. You earned <strong id="earnedPts" style="color:var(--teal-light)">0 points</strong> on this order! 🏅</p>
+    <button class="btn btn-coral" onclick="closeSuccess()">Back to Home</button>
+  </div>
+</div>
+
+<!-- EDIT MODAL -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal-box left">
+    <h2 style="margin-bottom:0.8rem">✏️ Edit Dish</h2>
+    <input type="hidden" id="editId"/>
+    <label>Dish Name</label><input type="text" id="editName"/>
+    <label>Price ($)</label><input type="number" id="editPrice" min="1"/>
+    <label>Category</label>
+    <select id="editCat"><option value="plates">Plate Lunches</option><option value="sides">Sides & Extras</option><option value="desserts">Desserts</option><option value="drinks">Drinks</option></select>
+    <label>Description</label><textarea id="editDesc" style="min-height:55px"></textarea>
+    <label>New Photo (optional)</label>
+    <div class="photo-upload">
+      <input type="file" accept="image/*" onchange="previewEditPhoto(this)"/>
+      <p id="editPhotoPrompt">📷 Upload new photo (leave blank to keep current)</p>
+      <img id="editPhotoPreview" class="photo-preview"/>
+    </div>
+    <div style="display:flex;gap:0.8rem;margin-top:1rem">
+      <button class="save-btn" onclick="saveEdit()">💾 Save Changes</button>
+      <button class="logout-btn" onclick="closeEdit()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── CONFIG ─────────────────────────────────────────────────
+const FORMSPREE_ID='YOUR_FORM_ID';
+const ADMIN_PASSWORD='shannon2024';
+const WHATSAPP_NUMBER='18085550188'; // Shannon's number (no spaces/dashes)
+const MENU_KEY='sk_menu_v3';
+const GALLERY_KEY='sk_gallery_v1';
+const REVIEWS_KEY='sk_reviews_v1';
+const LOYALTY_KEY='sk_loyalty_v1';
+const SPECIAL_KEY='sk_special_v1';
+const catLabels={plates:'Plate Lunches',sides:'Sides & Extras',desserts:'Desserts',drinks:'Drinks'};
+
+// ── DEFAULT DATA ────────────────────────────────────────────
+const defaultMenu=[
+  {id:1,name:"Kalua Pork Plate",cat:"plates",emoji:"🍖",desc:"Slow-cooked, smoky kalua pork with rice and macaroni salad.",price:14,photo:null,available:true},
+  {id:2,name:"Chicken Katsu Plate",cat:"plates",emoji:"🍗",desc:"Crispy chicken katsu with katsu sauce, two scoops rice, and mac salad.",price:13,photo:null,available:true},
+  {id:3,name:"Loco Moco",cat:"plates",emoji:"🍳",desc:"Rice, juicy beef patty, fried egg, and brown gravy.",price:13,photo:null,available:true},
+  {id:4,name:"Garlic Shrimp Plate",cat:"plates",emoji:"🍤",desc:"Garlicky, buttery shrimp over rice — North Shore style.",price:15,photo:null,available:true},
+  {id:5,name:"Spam Musubi",cat:"sides",emoji:"🍱",desc:"Classic Hawaiian snack — grilled Spam on sticky rice, wrapped in nori.",price:4,photo:null,available:true},
+  {id:6,name:"Macaroni Salad",cat:"sides",emoji:"🥗",desc:"Creamy classic Hawaiian mac salad — a must-have side.",price:4,photo:null,available:true},
+  {id:7,name:"Haupia",cat:"desserts",emoji:"🍮",desc:"Silky coconut pudding, chilled and sweet.",price:5,photo:null,available:true},
+  {id:8,name:"Malasadas",cat:"desserts",emoji:"🍩",desc:"Portuguese-style donuts, fluffy inside, dusted with sugar.",price:5,photo:null,available:true},
+  {id:9,name:"POG Juice",cat:"drinks",emoji:"🍹",desc:"Passion fruit, orange & guava — the ultimate Hawaiian juice blend.",price:4,photo:null,available:true},
+  {id:10,name:"Lilikoi Lemonade",cat:"drinks",emoji:"🍋",desc:"Fresh lilikoi blended with lemonade.",price:4,photo:null,available:true},
+];
+
+const defaultReviews=[
+  {name:"Keala M.",stars:5,text:"Shannon's loco moco is hands down the best on the island! My whole family orders every week. So ono! 🤙",date:"May 2026"},
+  {name:"Taro F.",stars:5,text:"The kalua pork plate reminds me of my grandma's cooking. Pure aloha on a plate. Mahalo Shannon!",date:"April 2026"},
+  {name:"Lisa K.",stars:5,text:"Ordered the garlic shrimp for my office and everyone loved it. Shannon is the real deal — so talented!",date:"April 2026"},
+  {name:"James N.",stars:4,text:"Malasadas were amazing — soft inside, perfectly sugared. The POG juice is a must! Will order again.",date:"March 2026"},
+];
+
+const defaultGallery=[
+  {id:1,emoji:"🍖",caption:"Kalua Pork fresh out of the smoker 🔥",photo:null},
+  {id:2,emoji:"🍳",caption:"Loco Moco — island comfort food 🤙",photo:null},
+  {id:3,emoji:"🍤",caption:"Garlic Shrimp plate — North Shore vibes 🌊",photo:null},
+  {id:4,emoji:"🍱",caption:"Spam Musubi made fresh this morning 🌺",photo:null},
+  {id:5,emoji:"🍮",caption:"Haupia — smooth, sweet, perfect 🥥",photo:null},
+  {id:6,emoji:"🍩",caption:"Malasadas hot from the pan! 😍",photo:null},
+];
+
+// ── STATE ───────────────────────────────────────────────────
+let menuData=[],galleryData=[],reviewsData=[],loyaltyData={},specialData={};
+let cart={},activeCategory='all',newPhotoData=null,editPhotoData=null,gPhotoData=null;
+let loggedIn=false,logoTaps=0,selectedStars=0,isJP=false,currentLoyaltyUser=null;
+
+// ── LOAD/SAVE ───────────────────────────────────────────────
+function load(){
+  try{menuData=JSON.parse(localStorage.getItem(MENU_KEY))||[...defaultMenu];}catch(e){menuData=[...defaultMenu];}
+  try{galleryData=JSON.parse(localStorage.getItem(GALLERY_KEY))||[...defaultGallery];}catch(e){galleryData=[...defaultGallery];}
+  try{reviewsData=JSON.parse(localStorage.getItem(REVIEWS_KEY))||[...defaultReviews];}catch(e){reviewsData=[...defaultReviews];}
+  try{loyaltyData=JSON.parse(localStorage.getItem(LOYALTY_KEY))||{};}catch(e){loyaltyData={};}
+  try{specialData=JSON.parse(localStorage.getItem(SPECIAL_KEY))||{title:'Today\'s Special: Garlic Shrimp Plate — Only $12!',desc:'Limited availability — order now before it\'s gone 🤙',visible:true};}catch(e){specialData={title:'Today\'s Special',desc:'Ask Shannon!',visible:true};}
+}
+function saveMenu(){try{localStorage.setItem(MENU_KEY,JSON.stringify(menuData));}catch(e){}}
+function saveGallery(){try{localStorage.setItem(GALLERY_KEY,JSON.stringify(galleryData));}catch(e){}}
+function saveReviews(){try{localStorage.setItem(REVIEWS_KEY,JSON.stringify(reviewsData));}catch(e){}}
+function saveLoyalty(){try{localStorage.setItem(LOYALTY_KEY,JSON.stringify(loyaltyData));}catch(e){}}
+function saveSpecial(){try{localStorage.setItem(SPECIAL_KEY,JSON.stringify(specialData));}catch(e){}}
+
+// ── LANGUAGE ────────────────────────────────────────────────
+const translations={
+  heroTitle:{en:"Shannon's Kitchen",jp:"シャノンのキッチン"},
+  heroTagline:{en:"Homemade Hawaiian-style cooking made with aloha, fresh ingredients, and a whole lotta love.",jp:"アロハの心を込めた、手作りハワイアン料理。カイルアから皆様へ。"},
+  btnMenu:{en:"View Menu",jp:"メニューを見る"},
+  btnOrder:{en:"Place an Order",jp:"注文する"},
+  btnPoints:{en:"My Points",jp:"ポイント"},
+  f1t:{en:"Home Cooked",jp:"手作り料理"},
+  f1p:{en:"Every dish made from scratch with local ingredients and real Hawaiian flavors.",jp:"地元の食材を使った手作りハワイアン料理です。"},
+  f2t:{en:"Kailua Local",jp:"カイルア地元"},
+  f2p:{en:"Based in Kailua, O'ahu. Pickup or local delivery available.",jp:"オアフ島カイルア在住。ピックアップとデリバリー対応。"},
+  f3t:{en:"Earn Points",jp:"ポイント獲得"},
+  f3p:{en:"Every $10 spent = 1 point. Redeem for free dishes and discounts!",jp:"10ドルごとに1ポイント。無料料理と交換できます！"},
+  f4t:{en:"Catering",jp:"ケータリング"},
+  f4p:{en:"Feeding a crowd? Shannon caters parties, birthdays & events.",jp:"パーティーやイベントのケータリングも対応します。"},
+};
+function toggleLang(){
+  isJP=!isJP;
+  document.getElementById('langLabel').textContent=isJP?'EN':'JP';
+  const lang=isJP?'jp':'en';
+  Object.keys(translations).forEach(k=>{
+    const el=document.getElementById(k);
+    if(el)el.textContent=translations[k][lang];
+  });
+}
+
+// ── SPECIAL BANNER ──────────────────────────────────────────
+function renderSpecial(){
+  const b=document.getElementById('specialBanner');
+  if(!specialData.visible){b.classList.add('hidden');return;}
+  b.classList.remove('hidden');
+  document.getElementById('specialTitle').textContent=specialData.title||'';
+  document.getElementById('specialDesc').textContent=specialData.desc||'';
+}
+function updateSpecial(){
+  specialData.title=document.getElementById('specialTitleInput').value||specialData.title;
+  specialData.desc=document.getElementById('specialDescInput').value||specialData.desc;
+  specialData.visible=true;
+  saveSpecial();renderSpecial();
+  alert('✅ Special banner updated!');
+}
+function hideSpecial(){
+  specialData.visible=false;saveSpecial();renderSpecial();
+  document.getElementById('specialBanner').classList.add('hidden');
+}
+
+// ── GALLERY ─────────────────────────────────────────────────
+function renderGallery(){
+  const grid=document.getElementById('galleryGrid');
+  if(!grid)return;
+  grid.innerHTML=galleryData.map(g=>`
+    <div class="gallery-item">
+      ${g.photo?`<img src="${g.photo}" alt="${g.caption}"/>`:`<span>${g.emoji||'🍽️'}</span>`}
+      <div class="overlay">🔍</div>
+    </div>
+    <div class="gallery-caption">${g.caption||''}</div>
+  `).join('');
+}
+function renderGalleryAdmin(){
+  document.getElementById('galleryCount').textContent=galleryData.length;
+  document.getElementById('galleryAdminItems').innerHTML=galleryData.map(g=>`
+    <div class="admin-item">
+      <div class="admin-item-img">${g.photo?`<img src="${g.photo}" style="width:44px;height:44px;border-radius:7px;object-fit:cover">`:(g.emoji||'📷')}</div>
+      <div class="admin-item-info"><strong>${g.caption||'Photo'}</strong></div>
+      <button class="icon-btn del" onclick="deleteGalleryPhoto(${g.id})">🗑️</button>
+    </div>`).join('');
+}
+function previewGalleryPhoto(input){
+  const file=input.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{gPhotoData=e.target.result;const img=document.getElementById('gPhotoPreview');img.src=gPhotoData;img.style.display='block';document.getElementById('gPhotoPrompt').textContent='✅ Photo ready!';};
+  reader.readAsDataURL(file);
+}
+function addGalleryPhoto(){
+  const caption=document.getElementById('gCaption').value.trim();
+  galleryData.push({id:Date.now(),emoji:'📷',caption:caption||'New photo',photo:gPhotoData||null});
+  saveGallery();renderGalleryAdmin();
+  document.getElementById('gCaption').value='';document.getElementById('gPhotoPreview').style.display='none';
+  document.getElementById('gPhotoPrompt').textContent='📷 Tap to upload a photo';gPhotoData=null;
+}
+function deleteGalleryPhoto(id){if(!confirm('Remove this photo?'))return;galleryData=galleryData.filter(g=>g.id!==id);saveGallery();renderGalleryAdmin();}
+
+// ── REVIEWS ─────────────────────────────────────────────────
+function renderReviews(){
+  const grid=document.getElementById('reviewsGrid');
+  if(!grid)return;
+  grid.innerHTML=reviewsData.map(r=>`
+    <div class="review-card">
+      <div class="review-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>
+      <p class="review-text">"${r.text}"</p>
+      <div class="review-author">— ${r.name} · ${r.date}</div>
+    </div>`).join('');
+}
+function setStars(n){
+  selectedStars=n;
+  document.querySelectorAll('#starSelect span').forEach((s,i)=>s.classList.toggle('active',i<n));
+}
+function submitReview(){
+  const name=document.getElementById('rName').value.trim();
+  const text=document.getElementById('rText').value.trim();
+  const msg=document.getElementById('reviewMsg');
+  if(!name||!text||!selectedStars){msg.style.display='block';msg.style.color='var(--coral)';msg.textContent='Please fill in your name, rating, and review.';return;}
+  reviewsData.unshift({name,stars:selectedStars,text,date:'Just now'});
+  saveReviews();renderReviews();
+  document.getElementById('rName').value='';document.getElementById('rText').value='';
+  setStars(0);selectedStars=0;
+  msg.style.display='block';msg.style.color='var(--teal-light)';msg.textContent='✅ Mahalo! Your review was posted!';
+  setTimeout(()=>msg.style.display='none',3000);
+}
+
+// ── LOYALTY ──────────────────────────────────────────────────
+const rewards=[
+  {id:'r1',icon:'🍽️',name:'Free Dish',desc:'Any dish from the menu, on Shannon!',pts:10},
+  {id:'r2',icon:'🥤',name:'Free Drink',desc:'Any drink from the menu.',pts:3},
+  {id:'r3',icon:'💰',name:'$5 Discount',desc:'$5 off your next order.',pts:5},
+  {id:'r4',icon:'🎉',name:'Free Dessert',desc:'Haupia or Malasadas — your pick!',pts:4},
+];
+function renderRewards(){
+  const u=currentLoyaltyUser?loyaltyData[currentLoyaltyUser]:null;
+  const pts=u?u.points:0;
+  document.getElementById('rewardsGrid').innerHTML=rewards.map(r=>`
+    <div class="reward-card">
+      <div class="r-icon">${r.icon}</div>
+      <h4>${r.name}</h4>
+      <p>${r.desc}</p>
+      <span class="pts">${r.pts} pts</span>
+      <button class="redeem-btn" ${pts<r.pts?'disabled':''} onclick="redeemReward('${r.id}','${r.name}',${r.pts})">${pts>=r.pts?'Redeem':'Need '+r.pts+' pts'}</button>
+    </div>`).join('');
+}
+function redeemReward(id,name,cost){
+  if(!currentLoyaltyUser){alert('Please check your points first!');return;}
+  const u=loyaltyData[currentLoyaltyUser];
+  if(!u||u.points<cost){alert('Not enough points!');return;}
+  u.points-=cost;
+  u.history=u.history||[];
+  u.history.unshift({type:'spent',desc:`Redeemed: ${name}`,pts:-cost,date:new Date().toLocaleDateString()});
+  saveLoyalty();renderLoyaltyUI();
+  alert(`🎉 Redeemed: ${name}! Show this to Shannon when you pick up. Aloha! 🌺`);
+}
+function checkLoyalty(){
+  const name=document.getElementById('loyaltyName').value.trim();
+  if(!name){alert('Please enter your name.');return;}
+  const key=name.toLowerCase();
+  if(!loyaltyData[key])loyaltyData[key]={name,points:0,history:[]};
+  currentLoyaltyUser=key;
+  saveLoyalty();renderLoyaltyUI();
+  // Show points widget on home
+  document.getElementById('pointsWidgetHome').style.display='flex';
+  document.getElementById('pwName').textContent=`Welcome, ${name}! 🌺`;
+  document.getElementById('pwSub').textContent=`You have ${loyaltyData[key].points} loyalty points.`;
+  document.getElementById('pwBadge').textContent=`${loyaltyData[key].points} pts`;
+}
+function renderLoyaltyUI(){
+  if(!currentLoyaltyUser)return;
+  const u=loyaltyData[currentLoyaltyUser];
+  const pts=u?u.points:0;
+  document.getElementById('loyaltyPoints').textContent=pts;
+  const pct=Math.min((pts/10)*100,100);
+  document.getElementById('progressFill').style.width=pct+'%';
+  renderRewards();
+  // History
+  const hist=u&&u.history&&u.history.length?u.history.slice(0,8):[];
+  document.getElementById('pointsHistory').innerHTML=hist.length
+    ?hist.map(h=>`<div class="history-row"><span>${h.desc}</span><span style="font-size:0.75rem;color:rgba(255,255,255,0.3)">${h.date}</span><span class="${h.pts>0?'pts-earned':'pts-spent'}">${h.pts>0?'+':''}${h.pts} pts</span></div>`).join('')
+    :'<p style="font-size:0.84rem;color:rgba(255,255,255,0.35)">No history yet — place your first order to start earning! 🌺</p>';
+}
+
+// ── MENU ────────────────────────────────────────────────────
+function renderMenuTabs(){
+  const cats=['all',...new Set(menuData.filter(m=>m.available).map(m=>m.cat))];
+  document.getElementById('menuTabs').innerHTML=cats.map(c=>`
+    <button class="tab${c===activeCategory?' active':''}" onclick="filterMenu('${c}',this)">
+      ${c==='all'?'All':catLabels[c]||c}</button>`).join('');
+}
+function renderMenu(cat){
+  const items=menuData.filter(m=>m.available&&(cat==='all'||m.cat===cat));
+  const grid=document.getElementById('menuGrid');
+  if(!items.length){grid.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:2rem;color:rgba(255,255,255,0.35)">No dishes yet — check back soon! 🌺</div>`;return;}
+  grid.innerHTML=items.map(item=>`
+    <div class="menu-card">
+      <div class="menu-img">${item.photo?`<img src="${item.photo}" alt="${item.name}"/>`:`<span>${item.emoji||'🍽️'}</span>`}</div>
+      <div class="menu-body">
+        <h3>${item.name}</h3>
+        <p>${item.desc||''}</p>
+        <div class="points-tag">🏅 Earns ${Math.floor(item.price/10)||1} pt${item.price>=20?'s':''} toward free food</div>
+        <div class="menu-footer">
+          <span class="price">$${Number(item.price).toFixed(2)}</span>
+          <button class="add-btn" onclick="addToCart(${item.id},this)">+ Add</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function filterMenu(cat,el){
+  activeCategory=cat;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');renderMenu(cat);
+}
+
+// ── CART ─────────────────────────────────────────────────────
+function addToCart(id,btn){
+  cart[id]=(cart[id]||0)+1;updateCartUI();
+  btn.textContent='✓ Added';btn.style.background='var(--green-mid)';
+  setTimeout(()=>{btn.textContent='+ Add';btn.style.background='var(--teal)'},800);
+}
+function updateCartUI(){
+  document.getElementById('cartCount').textContent=Object.values(cart).reduce((a,b)=>a+b,0);
+  renderCart();
+}
+function renderCart(){
+  const items=Object.entries(cart).filter(([,q])=>q>0);
+  const empty=document.getElementById('cartEmpty'),layout=document.getElementById('orderLayout');
+  if(!items.length){empty.style.display='block';layout.style.display='none';return;}
+  empty.style.display='none';layout.style.display='grid';
+  let html='',total=0;
+  items.forEach(([id,qty])=>{
+    const item=menuData.find(m=>m.id==id);if(!item)return;
+    const sub=Number(item.price)*qty;total+=sub;
+    const thumb=item.photo?`<img src="${item.photo}" style="width:40px;height:40px;border-radius:7px;object-fit:cover">`:`<div class="cart-item-thumb">${item.emoji||'🍽️'}</div>`;
+    html+=`<div class="cart-item">${thumb}
+      <div class="cart-item-info"><h4>${item.name}</h4><p>$${Number(item.price).toFixed(2)} each</p></div>
+      <div class="qty-ctrl">
+        <button class="qty-btn" onclick="changeQty(${id},-1)">−</button>
+        <span style="min-width:18px;text-align:center;font-size:0.88rem">${qty}</span>
+        <button class="qty-btn" onclick="changeQty(${id},1)">+</button>
+      </div>
+      <button class="remove-btn" onclick="removeItem(${id})">✕</button>
+    </div>`;
+  });
+  document.getElementById('cartItems').innerHTML=html;
+  document.getElementById('cartTotal').textContent=`$${total.toFixed(2)}`;
+  const pts=Math.floor(total/10);
+  document.getElementById('cartPointsEarn').textContent=pts>0?`🏅 This order earns you ${pts} loyalty point${pts>1?'s':''}!`:'';
+}
+function changeQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];updateCartUI();}
+function removeItem(id){delete cart[id];updateCartUI();}
+
+// ── ORDER SUBMIT ─────────────────────────────────────────────
+function buildOrderSummary(){
+  let lines=[],total=0;
+  Object.entries(cart).filter(([,q])=>q>0).forEach(([id,qty])=>{
+    const item=menuData.find(m=>m.id==id);if(!item)return;
+    const sub=Number(item.price)*qty;total+=sub;
+    lines.push(`${item.emoji||''} ${qty}x ${item.name} — $${sub.toFixed(2)}`);
+  });
+  lines.push(`\nTOTAL: $${total.toFixed(2)}`);
+  return{text:lines.join('\n'),total};
+}
+async function placeOrder(){
+  const name=document.getElementById('fname').value.trim();
+  const phone=document.getElementById('fphone').value.trim();
+  if(!name||!phone){alert('Please enter your name and phone number.');return;}
+  if(!Object.keys(cart).length){alert('Your cart is empty!');return;}
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true;btn.innerHTML='<span class="spinner"></span>Sending order...';
+  const {text,total}=buildOrderSummary();
+  const pts=Math.floor(total/10);
+  const payload={
+    _subject:`🌺 New Order from ${name}!`,name,phone,
+    scheduled:document.getElementById('fpickup').value||'ASAP',
+    type:document.getElementById('ftype').value==='delivery'?'Delivery':'Pickup',
+    address:document.getElementById('faddress').value.trim()||'N/A',
+    notes:document.getElementById('fnotes').value.trim()||'None',
+    order:text
+  };
+  try{
+    if(FORMSPREE_ID==='YOUR_FORM_ID'){await new Promise(r=>setTimeout(r,1200));}
+    else{const res=await fetch(`https://formspree.io/f/${FORMSPREE_ID}`,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});if(!res.ok)throw new Error();}
+    // Award loyalty points
+    if(currentLoyaltyUser&&pts>0){
+      const u=loyaltyData[currentLoyaltyUser];
+      u.points+=pts;u.history=u.history||[];
+      u.history.unshift({type:'earned',desc:`Order: ${name}`,pts,date:new Date().toLocaleDateString()});
+      saveLoyalty();renderLoyaltyUI();
+      document.getElementById('earnedPts').textContent=`${pts} point${pts>1?'s':''}`;
+    } else {
+      document.getElementById('earnedPts').textContent='points on your next order (register in the Points tab!)';
+    }
+    cart={};updateCartUI();
+    ['fname','fphone','fnotes','faddress'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('successModal').classList.add('show');
+  }catch(e){alert('Oops! Please try again or text Shannon on WhatsApp.');}
+  finally{btn.disabled=false;btn.innerHTML='🌺 Place My Order';}
+}
+function closeSuccess(){
+  document.getElementById('successModal').classList.remove('show');
+  showPage('home',document.querySelectorAll('.nav-links button')[0]);
+}
+
+// ── CATERING ────────────────────────────────────────────────
+async function submitCatering(){
+  const name=document.getElementById('cName').value.trim();
+  const phone=document.getElementById('cPhone').value.trim();
+  const msg=document.getElementById('cateringMsg');
+  if(!name||!phone){msg.style.display='block';msg.style.color='var(--coral)';msg.textContent='Please enter your name and phone.';return;}
+  msg.style.display='block';msg.style.color='var(--teal-light)';
+  msg.textContent='Sending...';
+  await new Promise(r=>setTimeout(r,900));
+  msg.textContent=`✅ Catering request sent! Shannon will contact you at ${phone} soon. Mahalo! 🌺`;
+}
+
+// ── WHATSAPP ────────────────────────────────────────────────
+function openWhatsApp(){
+  const msg=encodeURIComponent("Aloha Shannon! I'd like to place an order 🌺");
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`,'_blank');
+}
+
+// ── ADMIN ────────────────────────────────────────────────────
+function adminLogin(){
+  if(document.getElementById('adminPw').value===ADMIN_PASSWORD){
+    loggedIn=true;
+    document.getElementById('adminLogin').style.display='none';
+    document.getElementById('adminDashboard').style.display='block';
+    renderAdminItems();renderGalleryAdmin();
+    document.getElementById('specialTitleInput').value=specialData.title||'';
+    document.getElementById('specialDescInput').value=specialData.desc||'';
+  }else{document.getElementById('loginErr').style.display='block';}
+}
+function adminLogout(){
+  loggedIn=false;
+  document.getElementById('adminLogin').style.display='block';
+  document.getElementById('adminDashboard').style.display='none';
+  document.getElementById('adminPw').value='';
+  document.getElementById('loginErr').style.display='none';
+}
+function renderAdminItems(){
+  document.getElementById('dishCount').textContent=menuData.length;
+  if(!menuData.length){document.getElementById('adminItems').innerHTML='<p style="color:rgba(255,255,255,0.35);font-size:0.85rem">No dishes yet.</p>';return;}
+  document.getElementById('adminItems').innerHTML=menuData.map(item=>`
+    <div class="admin-item">
+      <div class="admin-item-img">${item.photo?`<img src="${item.photo}" style="width:44px;height:44px;border-radius:7px;object-fit:cover">`:(item.emoji||'🍽️')}</div>
+      <div class="admin-item-info"><strong>${item.name}</strong><span>$${Number(item.price).toFixed(2)} · ${catLabels[item.cat]||item.cat}</span></div>
+      <div class="admin-item-actions">
+        <button class="toggle-available" onclick="toggleAvail(${item.id})">${item.available?'✅':'❌'}</button>
+        <button class="icon-btn" onclick="openEdit(${item.id})">✏️</button>
+        <button class="icon-btn del" onclick="deleteDish(${item.id})">🗑️</button>
+      </div>
+    </div>`).join('');
+}
+function toggleAvail(id){const item=menuData.find(m=>m.id===id);if(item){item.available=!item.available;saveMenu();renderAdminItems();}}
+function deleteDish(id){if(!confirm('Delete this dish?'))return;menuData=menuData.filter(m=>m.id!==id);saveMenu();renderAdminItems();}
+let newPhotoData2=null;
+function previewPhoto(input){const file=input.files[0];if(!file)return;const r=new FileReader();r.onload=e=>{newPhotoData=e.target.result;const img=document.getElementById('photoPreview');img.src=newPhotoData;img.style.display='block';document.getElementById('photoUploadPrompt').textContent='✅ Photo ready!';};r.readAsDataURL(file);}
+function previewEditPhoto(input){const file=input.files[0];if(!file)return;const r=new FileReader();r.onload=e=>{editPhotoData=e.target.result;const img=document.getElementById('editPhotoPreview');img.src=editPhotoData;img.style.display='block';document.getElementById('editPhotoPrompt').textContent='✅ New photo ready!';};r.readAsDataURL(file);}
+function addDish(){
+  const name=document.getElementById('newName').value.trim();
+  const price=document.getElementById('newPrice').value;
+  const msg=document.getElementById('addMsg');
+  if(!name||!price){msg.style.display='block';msg.style.color='var(--coral)';msg.textContent='Please enter a name and price.';return;}
+  menuData.push({id:Date.now(),name,price:Number(price),cat:document.getElementById('newCat').value,desc:document.getElementById('newDesc').value.trim(),emoji:'🍽️',photo:newPhotoData||null,available:true});
+  saveMenu();renderAdminItems();
+  document.getElementById('newName').value='';document.getElementById('newPrice').value='';document.getElementById('newDesc').value='';
+  document.getElementById('photoPreview').style.display='none';document.getElementById('photoUploadPrompt').textContent='📷 Tap to upload a photo';newPhotoData=null;
+  msg.style.display='block';msg.style.color='var(--teal-light)';msg.textContent=`✅ "${name}" added!`;
+  setTimeout(()=>msg.style.display='none',3000);
+}
+function openEdit(id){
+  const item=menuData.find(m=>m.id===id);if(!item)return;
+  editPhotoData=null;
+  document.getElementById('editId').value=id;
+  document.getElementById('editName').value=item.name;
+  document.getElementById('editPrice').value=item.price;
+  document.getElementById('editCat').value=item.cat;
+  document.getElementById('editDesc').value=item.desc||'';
+  document.getElementById('editPhotoPreview').style.display='none';
+  document.getElementById('editPhotoPrompt').textContent='📷 Upload new photo (leave blank to keep current)';
+  document.getElementById('editModal').classList.add('show');
+}
+function saveEdit(){
+  const id=Number(document.getElementById('editId').value);
+  const item=menuData.find(m=>m.id===id);if(!item)return;
+  item.name=document.getElementById('editName').value.trim()||item.name;
+  item.price=Number(document.getElementById('editPrice').value)||item.price;
+  item.cat=document.getElementById('editCat').value;
+  item.desc=document.getElementById('editDesc').value.trim();
+  if(editPhotoData)item.photo=editPhotoData;
+  saveMenu();renderAdminItems();
+  document.getElementById('editModal').classList.remove('show');
+}
+function closeEdit(){document.getElementById('editModal').classList.remove('show');}
+
+// ── NAV ──────────────────────────────────────────────────────
+function showPage(id,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-links button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  if(btn)btn.classList.add('active');
+  if(id==='menu'){renderMenuTabs();renderMenu(activeCategory);}
+  if(id==='order')renderCart();
+  if(id==='gallery')renderGallery();
+  if(id==='reviews')renderReviews();
+  if(id==='loyalty')renderLoyaltyUI();
+  window.scrollTo(0,0);
+}
+document.getElementById('logoBtn').addEventListener('click',()=>{
+  logoTaps++;if(logoTaps>=5){logoTaps=0;showPage('admin',null);}
+  setTimeout(()=>{if(logoTaps<5)logoTaps=0;},2000);
+});
+
+// ── INIT ─────────────────────────────────────────────────────
+load();
+renderSpecial();
+renderMenuTabs();
+renderMenu('all');
+</script>
+</body>
+</html>
