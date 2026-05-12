@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shannon's Kitchen</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#1a2e35;
+  --teal:#2a7c6f;
+  --teal-light:#3aa897;
+  --coral:#e8714a;
+  --pink:#f0a89a;
+  --green-dark:#1e4d3a;
+  --green-mid:#2d6e50;
+  --sand:#fdf0e8;
+  --white:#fff;
+  --shadow:0 6px 30px rgba(0,0,0,0.18)
+}
+body{font-family:'Lato',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;overflow-x:hidden}
+
+/* FLORAL SVG DECORATIONS */
+.floral-top{position:absolute;top:0;left:0;width:100%;pointer-events:none;opacity:0.18;z-index:0}
+.floral-corner{position:absolute;pointer-events:none;opacity:0.22}
+
+/* NAV */
+nav{background:rgba(26,46,53,0.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:200;border-bottom:1px solid rgba(58,168,151,0.3);padding:0 1.5rem}
+.nav-inner{max-width:920px;margin:auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Dancing Script',cursive;font-size:1.6rem;color:var(--coral);letter-spacing:1px;cursor:pointer}
+.logo span{color:var(--teal-light)}
+.nav-links{display:flex;gap:0.2rem}
+.nav-links button{background:none;border:none;font-family:'Lato',sans-serif;font-size:0.82rem;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.75);padding:7px 13px;border-radius:6px;cursor:pointer;transition:all 0.2s}
+.nav-links button:hover,.nav-links button.active{background:var(--coral);color:#fff}
+.cart-btn{background:var(--teal)!important;color:#fff!important;position:relative}
+.cart-count{position:absolute;top:-5px;right:-5px;background:var(--coral);color:#fff;border-radius:50%;width:18px;height:18px;font-size:10px;display:flex;align-items:center;justify-content:center}
+
+/* PAGES */
+.page{display:none;max-width:920px;margin:auto;padding:2.5rem 1.5rem;position:relative}
+.page.active{display:block}
+
+/* HERO */
+.hero{position:relative;text-align:center;padding:4rem 2rem 3rem;overflow:hidden;border-radius:24px;background:var(--green-dark);margin-bottom:2rem;border:1px solid rgba(58,168,151,0.2)}
+.hero-bg{position:absolute;inset:0;opacity:0.12;background-image:
+  radial-gradient(ellipse at 10% 20%, #e8714a 0%, transparent 40%),
+  radial-gradient(ellipse at 90% 80%, #2a7c6f 0%, transparent 40%),
+  radial-gradient(ellipse at 50% 50%, #1e4d3a 0%, transparent 60%)}
+.hero-flowers-row{font-size:2.2rem;letter-spacing:6px;margin-bottom:1.2rem;position:relative;z-index:1}
+.hero h1{font-family:'Dancing Script',cursive;font-size:4rem;color:var(--coral);margin-bottom:0.4rem;position:relative;z-index:1;text-shadow:0 2px 20px rgba(232,113,74,0.3)}
+.hero-tagline{font-size:1rem;color:rgba(255,255,255,0.8);max-width:480px;margin:0 auto 0.6rem;line-height:1.7;position:relative;z-index:1;font-weight:300;letter-spacing:0.5px}
+.hero-location{font-size:0.82rem;color:var(--teal-light);letter-spacing:2px;text-transform:uppercase;margin-bottom:2rem;position:relative;z-index:1}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.btn{padding:12px 30px;border-radius:50px;border:none;font-family:'Lato',sans-serif;font-size:0.9rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all 0.25s;font-weight:700}
+.btn-coral{background:var(--coral);color:#fff;box-shadow:0 4px 15px rgba(232,113,74,0.35)}
+.btn-coral:hover{background:#d4603a;transform:translateY(-2px)}
+.btn-teal{background:var(--teal);color:#fff;box-shadow:0 4px 15px rgba(42,124,111,0.35)}
+.btn-teal:hover{background:#236559;transform:translateY(-2px)}
+.btn-outline{background:transparent;border:1.5px solid rgba(255,255,255,0.4);color:#fff}
+.btn-outline:hover{background:rgba(255,255,255,0.1)}
+
+/* LEAF DIVIDER */
+.leaf-divider{text-align:center;font-size:1.4rem;letter-spacing:8px;margin:1.5rem 0;opacity:0.5}
+
+/* FEATURES */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:2rem}
+.feat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(58,168,151,0.2);border-radius:16px;padding:1.5rem;text-align:center;transition:all 0.2s;backdrop-filter:blur(4px)}
+.feat-card:hover{background:rgba(58,168,151,0.1);border-color:rgba(58,168,151,0.4);transform:translateY(-3px)}
+.feat-icon{font-size:2rem;margin-bottom:0.6rem}
+.feat-card h3{font-size:0.85rem;color:var(--teal-light);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:0.4rem}
+.feat-card p{font-size:0.85rem;color:rgba(255,255,255,0.65);line-height:1.6;font-weight:300}
+
+/* ABOUT */
+.about-card{background:var(--green-dark);border:1px solid rgba(58,168,151,0.2);border-radius:20px;padding:2.5rem;display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:center}
+.about-avatar{width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,var(--coral),var(--teal));display:flex;align-items:center;justify-content:center;font-size:4rem;border:3px solid rgba(232,113,74,0.4);box-shadow:0 0 30px rgba(232,113,74,0.2);flex-shrink:0}
+.about-card h2{font-family:'Dancing Script',cursive;font-size:2.4rem;color:var(--coral);margin-bottom:0.8rem}
+.about-card p{line-height:1.8;color:rgba(255,255,255,0.78);margin-bottom:0.8rem;font-size:0.95rem;font-weight:300}
+.badge-row{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1rem}
+.badge{background:rgba(58,168,151,0.15);color:var(--teal-light);border:1px solid rgba(58,168,151,0.3);border-radius:50px;padding:4px 14px;font-size:0.78rem;letter-spacing:0.5px}
+
+/* SECTION TITLES */
+.section-title{font-family:'Dancing Script',cursive;font-size:2.2rem;color:var(--coral);margin-bottom:0.3rem}
+.section-sub{color:rgba(255,255,255,0.55);margin-bottom:1.5rem;font-size:0.9rem;font-weight:300;letter-spacing:0.3px}
+
+/* MENU */
+.category-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.tab{padding:8px 20px;border-radius:50px;border:1px solid rgba(58,168,151,0.35);background:none;font-family:'Lato',sans-serif;font-size:0.78rem;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.65);cursor:pointer;transition:all 0.2s}
+.tab.active,.tab:hover{background:var(--coral);border-color:var(--coral);color:#fff}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.2rem}
+.menu-card{background:var(--green-dark);border:1px solid rgba(58,168,151,0.15);border-radius:16px;overflow:hidden;transition:all 0.25s;cursor:default}
+.menu-card:hover{transform:translateY(-4px);border-color:rgba(232,113,74,0.3);box-shadow:0 10px 30px rgba(0,0,0,0.25)}
+.menu-img{height:150px;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(135deg,rgba(30,77,58,0.8),rgba(26,46,53,0.9));overflow:hidden;position:relative}
+.menu-img img{width:100%;height:100%;object-fit:cover}
+.menu-img-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,var(--green-dark))}
+.menu-body{padding:1.1rem}
+.menu-body h3{font-size:1rem;color:var(--white);margin-bottom:0.3rem;font-weight:700}
+.menu-body p{font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.5;margin-bottom:0.9rem;font-weight:300}
+.menu-footer{display:flex;align-items:center;justify-content:space-between}
+.price{font-size:1.15rem;font-weight:700;color:var(--coral);font-family:'Dancing Script',cursive}
+.add-btn{background:var(--teal);color:#fff;border:none;border-radius:50px;padding:7px 18px;font-size:0.8rem;letter-spacing:0.5px;cursor:pointer;font-family:'Lato',sans-serif;transition:all 0.2s;font-weight:700}
+.add-btn:hover{background:var(--teal-light)}
+.empty-menu{text-align:center;padding:3rem;color:rgba(255,255,255,0.4);background:var(--green-dark);border-radius:16px}
+
+/* ORDER */
+.cart-empty{text-align:center;padding:3rem;color:rgba(255,255,255,0.5)}
+.cart-empty .empty-icon{font-size:3rem;margin-bottom:1rem}
+.order-layout{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.cart-section,.order-form{background:var(--green-dark);border:1px solid rgba(58,168,151,0.2);border-radius:16px;padding:1.5rem}
+.cart-section h3,.order-form h3{font-family:'Dancing Script',cursive;font-size:1.4rem;color:var(--coral);margin-bottom:1rem}
+.cart-item{display:flex;align-items:center;gap:1rem;padding:0.8rem 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.cart-item-thumb{width:44px;height:44px;border-radius:8px;object-fit:cover;background:rgba(58,168,151,0.15);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;overflow:hidden}
+.cart-item-info{flex:1}
+.cart-item-info h4{font-size:0.9rem;margin-bottom:0.2rem;color:#fff}
+.cart-item-info p{font-size:0.78rem;color:rgba(255,255,255,0.45)}
+.qty-ctrl{display:flex;align-items:center;gap:8px}
+.qty-btn{width:26px;height:26px;border-radius:50%;border:1px solid var(--coral);background:none;color:var(--coral);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+.qty-btn:hover{background:var(--coral);color:#fff}
+.remove-btn{background:none;border:none;color:rgba(255,255,255,0.2);cursor:pointer;font-size:1.1rem}
+.remove-btn:hover{color:#e24b4a}
+.cart-total{border-top:1px solid rgba(255,255,255,0.1);margin-top:1rem;padding-top:1rem;text-align:right}
+.cart-total span{font-family:'Dancing Script',cursive;font-size:1.6rem;color:var(--coral)}
+label{display:block;font-size:0.78rem;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:5px;margin-top:14px}
+input,textarea,select{width:100%;padding:10px 13px;border:1px solid rgba(58,168,151,0.25);border-radius:8px;font-family:'Lato',sans-serif;font-size:0.9rem;background:rgba(255,255,255,0.05);color:#fff;outline:none;transition:border 0.2s}
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,0.25)}
+input:focus,textarea:focus,select:focus{border-color:var(--teal-light)}
+select option{background:var(--navy);color:#fff}
+textarea{resize:vertical;min-height:80px}
+.submit-btn{width:100%;margin-top:1.5rem;padding:14px;border-radius:50px;background:var(--coral);color:#fff;border:none;font-family:'Lato',sans-serif;font-size:0.9rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 20px rgba(232,113,74,0.3)}
+.submit-btn:hover{background:#d4603a;transform:translateY(-1px)}
+.submit-btn:disabled{background:rgba(255,255,255,0.15);cursor:not-allowed;transform:none}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.contact-card{background:var(--green-dark);border:1px solid rgba(58,168,151,0.2);border-radius:16px;padding:1.5rem}
+.contact-card h3{font-family:'Dancing Script',cursive;font-size:1.5rem;color:var(--coral);margin-bottom:1rem}
+.contact-row{display:flex;align-items:flex-start;gap:0.8rem;margin-bottom:0.9rem}
+.contact-icon{font-size:1.2rem;margin-top:2px}
+.contact-row div{font-size:0.88rem;line-height:1.5;color:rgba(255,255,255,0.65);font-weight:300}
+.contact-row strong{color:#fff;font-size:0.9rem}
+.map-box{background:linear-gradient(135deg,var(--green-dark),var(--navy));border-radius:12px;height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;border:1px solid rgba(58,168,151,0.15)}
+.map-box p{font-size:0.85rem;color:rgba(255,255,255,0.5);letter-spacing:0.5px}
+.hours-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:0.85rem}
+.hours-row:last-child{border:none}
+.open{color:var(--teal-light);font-weight:700}
+.closed{color:rgba(255,255,255,0.3)}
+
+/* ADMIN */
+.admin-login-wrap{max-width:360px;margin:3rem auto}
+.admin-login{background:var(--green-dark);border:1px solid rgba(58,168,151,0.2);border-radius:20px;padding:2.5rem;text-align:center}
+.admin-login h2{font-family:'Dancing Script',cursive;font-size:2rem;color:var(--coral);margin-bottom:0.4rem}
+.admin-login p{font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:1.5rem;font-weight:300}
+.admin-panel{background:var(--green-dark);border:1px solid rgba(58,168,151,0.2);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem}
+.admin-panel h3{font-family:'Dancing Script',cursive;font-size:1.4rem;color:var(--coral);margin-bottom:1rem}
+.admin-items{display:flex;flex-direction:column;gap:0.7rem;margin-bottom:1rem}
+.admin-item{display:flex;align-items:center;gap:1rem;padding:0.9rem;background:rgba(255,255,255,0.04);border-radius:10px;border:1px solid rgba(58,168,151,0.12)}
+.admin-item-img{width:48px;height:48px;border-radius:8px;object-fit:cover;background:rgba(58,168,151,0.1);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;overflow:hidden}
+.admin-item-info{flex:1}
+.admin-item-info strong{font-size:0.92rem;display:block;color:#fff}
+.admin-item-info span{font-size:0.78rem;color:rgba(255,255,255,0.4)}
+.admin-item-actions{display:flex;gap:6px;align-items:center}
+.icon-btn{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:5px 11px;cursor:pointer;font-size:0.78rem;color:rgba(255,255,255,0.6);font-family:'Lato',sans-serif;transition:all 0.2s}
+.icon-btn:hover{border-color:var(--coral);color:var(--coral);background:rgba(232,113,74,0.08)}
+.icon-btn.del:hover{border-color:#e24b4a;color:#e24b4a}
+.toggle-available{background:none;border:none;cursor:pointer;font-size:1.1rem;padding:4px}
+.add-dish-form{background:rgba(255,255,255,0.03);border-radius:12px;padding:1.2rem;border:1px dashed rgba(58,168,151,0.25)}
+.add-dish-form h4{color:rgba(255,255,255,0.7);margin-bottom:0.8rem;font-size:0.95rem;font-weight:400}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem}
+.photo-upload{border:1.5px dashed rgba(58,168,151,0.3);border-radius:10px;padding:1.2rem;text-align:center;cursor:pointer;transition:all 0.2s;background:rgba(255,255,255,0.02);position:relative}
+.photo-upload:hover{border-color:var(--teal-light)}
+.photo-upload input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.photo-upload p{font-size:0.82rem;color:rgba(255,255,255,0.4);font-weight:300}
+.photo-preview{width:100%;height:110px;object-fit:cover;border-radius:8px;margin-top:0.5rem;display:none}
+.save-btn{background:var(--teal);color:#fff;border:none;border-radius:50px;padding:10px 26px;font-family:'Lato',sans-serif;font-size:0.85rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;margin-top:1rem;font-weight:700;transition:all 0.2s}
+.save-btn:hover{background:var(--teal-light)}
+.logout-btn{background:none;border:1px solid rgba(255,255,255,0.15);border-radius:50px;padding:8px 20px;font-family:'Lato',sans-serif;font-size:0.82rem;cursor:pointer;color:rgba(255,255,255,0.5);transition:all 0.2s}
+.logout-btn:hover{border-color:var(--coral);color:var(--coral)}
+.add-msg{font-size:0.82rem;margin-top:0.5rem;display:none}
+
+/* MODALS */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:999;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.modal-overlay.show{display:flex}
+.modal-box{background:var(--green-dark);border:1px solid rgba(58,168,151,0.25);border-radius:20px;padding:2.5rem;text-align:center;max-width:380px;width:90%}
+.modal-box.left{text-align:left;max-width:440px}
+.modal-box .big-emoji{font-size:3rem;margin-bottom:0.8rem}
+.modal-box h2{font-family:'Dancing Script',cursive;font-size:2rem;color:var(--coral);margin-bottom:0.6rem}
+.modal-box p{color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:1.5rem;font-size:0.92rem;font-weight:300}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,0.4);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:middle;margin-right:8px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:620px){
+  .about-card,.order-layout,.contact-grid,.form-row{grid-template-columns:1fr}
+  .hero h1{font-size:3rem}
+  .nav-links button{font-size:0.72rem;padding:5px 8px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo" id="logoBtn">🌺 Shannon's <span>Kitchen</span></div>
+    <div class="nav-links">
+      <button class="active" onclick="showPage('home',this)">Home</button>
+      <button onclick="showPage('about',this)">About</button>
+      <button onclick="showPage('menu',this)">Menu</button>
+      <button class="cart-btn" onclick="showPage('order',this)">Order <span class="cart-count" id="cartCount">0</span></button>
+      <button onclick="showPage('contact',this)">Contact</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-flowers-row">🌸🌿🌺🌴🌸</div>
+    <h1>Shannon's Kitchen</h1>
+    <p class="hero-tagline">Homemade Hawaiian-style cooking made with aloha, fresh ingredients, and a whole lotta love.</p>
+    <p class="hero-location">📍 Kailua, O'ahu, Hawai'i</p>
+    <div class="hero-btns">
+      <button class="btn btn-coral" onclick="showPage('menu',document.querySelectorAll('.nav-links button')[2])">View Menu</button>
+      <button class="btn btn-teal" onclick="showPage('order',document.querySelectorAll('.nav-links button')[3])">Place an Order</button>
+    </div>
+  </div>
+  <div class="leaf-divider">🌿 · 🌺 · 🌿</div>
+  <div class="features">
+    <div class="feat-card"><div class="feat-icon">🍚</div><h3>Home Cooked</h3><p>Every dish made from scratch with local ingredients and real Hawaiian flavors.</p></div>
+    <div class="feat-card"><div class="feat-icon">📍</div><h3>Kailua Local</h3><p>Based right here in Kailua, O'ahu. Pickup or local delivery available.</p></div>
+    <div class="feat-card"><div class="feat-icon">🤙</div><h3>Order Anytime</h3><p>Browse the menu and place your order online — simple and easy.</p></div>
+    <div class="feat-card"><div class="feat-icon">💛</div><h3>Made with Aloha</h3><p>Shannon puts heart and soul into every plate. Taste the difference.</p></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="page-about">
+  <div class="about-card">
+    <div><div class="about-avatar">👩‍🍳</div></div>
+    <div>
+      <h2>Aloha, I'm Shannon!</h2>
+      <p>I'm a home cook born and raised on O'ahu, with a deep love for Hawaiian flavors, family recipes, and feeding the people I care about.</p>
+      <p>What started as cooking for neighbors has grown into something special — a little kitchen business right here in Kailua, serving plates full of aloha to the community I love.</p>
+      <p>Every dish I make carries the spirit of the islands: fresh, warm, and made with real love. From classic plate lunches to local favorites, I put my heart into every bite.</p>
+      <div class="badge-row">
+        <span class="badge">🌺 Hawaiian Cuisine</span>
+        <span class="badge">🍍 Local Ingredients</span>
+        <span class="badge">🏝️ Kailua, O'ahu</span>
+        <span class="badge">💛 Made with Aloha</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MENU -->
+<div class="page" id="page-menu">
+  <h2 class="section-title">Today's Menu</h2>
+  <p class="section-sub">Fresh, homemade, and made to order. Tap a dish to add it to your cart.</p>
+  <div class="category-tabs" id="menuTabs"></div>
+  <div class="menu-grid" id="menuGrid"></div>
+</div>
+
+<!-- ORDER -->
+<div class="page" id="page-order">
+  <h2 class="section-title">Your Order</h2>
+  <p class="section-sub">Review your cart and fill in your details to place an order.</p>
+  <div id="cartEmpty" class="cart-empty" style="display:none">
+    <div class="empty-icon">🛒</div>
+    <p style="color:rgba(255,255,255,0.45)">Your cart is empty.<br>Head to the Menu to add some dishes!</p>
+    <button class="btn btn-coral" style="margin-top:1.2rem" onclick="showPage('menu',document.querySelectorAll('.nav-links button')[2])">Browse Menu</button>
+  </div>
+  <div class="order-layout" id="orderLayout">
+    <div class="cart-section">
+      <h3>🛒 Cart</h3>
+      <div id="cartItems"></div>
+      <div class="cart-total">Total: <span id="cartTotal">$0.00</span></div>
+    </div>
+    <div class="order-form">
+      <h3>Your Details</h3>
+      <label>Full Name</label><input type="text" id="fname" placeholder="e.g. Kaleo Akana"/>
+      <label>Phone Number</label><input type="tel" id="fphone" placeholder="(808) 555-0100"/>
+      <label>Pickup or Delivery?</label>
+      <select id="ftype">
+        <option value="pickup">Pickup — I'll come to Shannon</option>
+        <option value="delivery">Local Delivery (Kailua area)</option>
+      </select>
+      <label>Address (if delivery)</label><input type="text" id="faddress" placeholder="Street address in Kailua"/>
+      <label>Special Requests / Allergies</label>
+      <textarea id="fnotes" placeholder="Any special requests or notes..."></textarea>
+      <button class="submit-btn" id="submitBtn" onclick="placeOrder()">🌺 Place My Order</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <h2 class="section-title">Get in Touch</h2>
+  <p class="section-sub">Have a question or want to place a big order? Shannon would love to hear from you!</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>Contact Info</h3>
+      <div class="contact-row"><div class="contact-icon">📞</div><div><strong>Phone / Text</strong><br>(808) 555-0188</div></div>
+      <div class="contact-row"><div class="contact-icon">📧</div><div><strong>Email</strong><br>shannon@shannonskitchen.com</div></div>
+      <div class="contact-row"><div class="contact-icon">📍</div><div><strong>Location</strong><br>Kailua, O'ahu, Hawai'i</div></div>
+      <div class="contact-row"><div class="contact-icon">📱</div><div><strong>Instagram</strong><br>@shannonskitchenhawaii</div></div>
+    </div>
+    <div class="contact-card">
+      <h3>Order Hours</h3>
+      <div class="hours-row"><span>Monday</span><span class="open">10am – 7pm</span></div>
+      <div class="hours-row"><span>Tuesday</span><span class="open">10am – 7pm</span></div>
+      <div class="hours-row"><span>Wednesday</span><span class="open">10am – 7pm</span></div>
+      <div class="hours-row"><span>Thursday</span><span class="open">10am – 7pm</span></div>
+      <div class="hours-row"><span>Friday</span><span class="open">10am – 8pm</span></div>
+      <div class="hours-row"><span>Saturday</span><span class="open">9am – 6pm</span></div>
+      <div class="hours-row"><span>Sunday</span><span class="closed">Closed 🌴</span></div>
+      <div class="map-box" style="margin-top:1rem"><span style="font-size:1.8rem">🗺️</span><p>Kailua, O'ahu, HI 96734</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div class="page" id="page-admin">
+  <div id="adminLogin">
+    <div class="admin-login-wrap">
+      <div class="admin-login">
+        <div style="font-size:2.5rem;margin-bottom:0.5rem">🔐</div>
+        <h2>Admin Area</h2>
+        <p>Enter your password to manage your menu.</p>
+        <label>Password</label>
+        <input type="password" id="adminPw" placeholder="Enter password" onkeydown="if(event.key==='Enter')adminLogin()"/>
+        <button class="btn btn-coral" style="width:100%;margin-top:1rem" onclick="adminLogin()">Log In</button>
+        <p id="loginErr" style="color:#e8714a;font-size:0.82rem;margin-top:0.8rem;display:none">Wrong password. Try again.</p>
+      </div>
+    </div>
+  </div>
+  <div id="adminDashboard" style="display:none">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem">
+      <div><h2 class="section-title">Menu Manager</h2><p class="section-sub">Add, edit, or remove dishes. Changes show instantly.</p></div>
+      <button class="logout-btn" onclick="adminLogout()">Log Out</button>
+    </div>
+    <div class="admin-panel">
+      <h3>🍽️ Current Dishes (<span id="dishCount">0</span>)</h3>
+      <div class="admin-items" id="adminItems"></div>
+    </div>
+    <div class="admin-panel">
+      <h3>➕ Add a New Dish</h3>
+      <div class="add-dish-form">
+        <div class="form-row">
+          <div><label>Dish Name *</label><input type="text" id="newName" placeholder="e.g. Kalua Pork Plate"/></div>
+          <div><label>Price ($) *</label><input type="number" id="newPrice" placeholder="14" min="1"/></div>
+        </div>
+        <label>Category *</label>
+        <select id="newCat">
+          <option value="plates">Plate Lunches</option>
+          <option value="sides">Sides & Extras</option>
+          <option value="desserts">Desserts</option>
+          <option value="drinks">Drinks</option>
+        </select>
+        <label>Description</label>
+        <textarea id="newDesc" placeholder="Describe the dish..." style="min-height:60px"></textarea>
+        <label>Photo (optional)</label>
+        <div class="photo-upload">
+          <input type="file" accept="image/*" onchange="previewPhoto(this)"/>
+          <p id="photoUploadPrompt">📷 Tap to upload a photo from your phone or computer</p>
+          <img id="photoPreview" class="photo-preview"/>
+        </div>
+        <button class="save-btn" onclick="addDish()">💾 Save Dish to Menu</button>
+        <p class="add-msg" id="addMsg"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal-box">
+    <div class="big-emoji">🌺</div>
+    <h2>Order Received!</h2>
+    <p>Mahalo! Shannon got your order and will reach out shortly to confirm. Get ready for some ono grinds! 🤙</p>
+    <button class="btn btn-coral" onclick="closeSuccess()">Back to Home</button>
+  </div>
+</div>
+
+<!-- EDIT MODAL -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal-box left">
+    <h2 style="margin-bottom:1rem">✏️ Edit Dish</h2>
+    <input type="hidden" id="editId"/>
+    <label>Dish Name</label><input type="text" id="editName"/>
+    <label>Price ($)</label><input type="number" id="editPrice" min="1"/>
+    <label>Category</label>
+    <select id="editCat">
+      <option value="plates">Plate Lunches</option>
+      <option value="sides">Sides & Extras</option>
+      <option value="desserts">Desserts</option>
+      <option value="drinks">Drinks</option>
+    </select>
+    <label>Description</label><textarea id="editDesc" style="min-height:60px"></textarea>
+    <label>New Photo (optional)</label>
+    <div class="photo-upload">
+      <input type="file" accept="image/*" onchange="previewEditPhoto(this)"/>
+      <p id="editPhotoPrompt">📷 Upload new photo (leave blank to keep current)</p>
+      <img id="editPhotoPreview" class="photo-preview"/>
+    </div>
+    <div style="display:flex;gap:1rem;margin-top:1.2rem">
+      <button class="save-btn" onclick="saveEdit()">💾 Save Changes</button>
+      <button class="logout-btn" onclick="closeEdit()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const FORMSPREE_ID='YOUR_FORM_ID';
+const ADMIN_PASSWORD='shannon2024';
+const MENU_KEY='sk_menu_v2';
+const catLabels={plates:'Plate Lunches',sides:'Sides & Extras',desserts:'Desserts',drinks:'Drinks'};
+
+const defaultMenu=[
+  {id:1,name:"Kalua Pork Plate",cat:"plates",emoji:"🍖",desc:"Slow-cooked, smoky kalua pork with rice and macaroni salad.",price:14,photo:null,available:true},
+  {id:2,name:"Chicken Katsu Plate",cat:"plates",emoji:"🍗",desc:"Crispy chicken katsu with katsu sauce, two scoops rice, and mac salad.",price:13,photo:null,available:true},
+  {id:3,name:"Loco Moco",cat:"plates",emoji:"🍳",desc:"Rice, juicy beef patty, fried egg, and brown gravy.",price:13,photo:null,available:true},
+  {id:4,name:"Garlic Shrimp Plate",cat:"plates",emoji:"🍤",desc:"Garlicky, buttery shrimp over rice — North Shore style.",price:15,photo:null,available:true},
+  {id:5,name:"Spam Musubi",cat:"sides",emoji:"🍱",desc:"Classic Hawaiian snack — grilled Spam on sticky rice, wrapped in nori.",price:4,photo:null,available:true},
+  {id:6,name:"Haupia",cat:"desserts",emoji:"🍮",desc:"Silky coconut pudding, chilled and sweet.",price:5,photo:null,available:true},
+  {id:7,name:"POG Juice",cat:"drinks",emoji:"🍹",desc:"Passion fruit, orange & guava — the ultimate Hawaiian juice blend.",price:4,photo:null,available:true},
+];
+
+let menuData=[],cart={},activeCategory='all',newPhotoData=null,editPhotoData=null,loggedIn=false,logoTaps=0;
+
+function loadMenu(){
+  try{const r=localStorage.getItem(MENU_KEY);menuData=r?JSON.parse(r):[...defaultMenu];}
+  catch(e){menuData=[...defaultMenu];}
+}
+function saveMenu(){try{localStorage.setItem(MENU_KEY,JSON.stringify(menuData));}catch(e){}}
+
+// ── PUBLIC MENU ───────────────────────────────────────────────
+function renderMenuTabs(){
+  const cats=['all',...new Set(menuData.filter(m=>m.available).map(m=>m.cat))];
+  document.getElementById('menuTabs').innerHTML=cats.map(c=>`
+    <button class="tab${c===activeCategory?' active':''}" onclick="filterMenu('${c}',this)">
+      ${c==='all'?'All':catLabels[c]||c}
+    </button>`).join('');
+}
+
+function renderMenu(cat){
+  const items=menuData.filter(m=>m.available&&(cat==='all'||m.cat===cat));
+  const grid=document.getElementById('menuGrid');
+  if(!items.length){grid.innerHTML=`<div class="empty-menu" style="grid-column:1/-1"><p>No dishes yet — check back soon! 🌺</p></div>`;return;}
+  grid.innerHTML=items.map(item=>`
+    <div class="menu-card">
+      <div class="menu-img">
+        ${item.photo?`<img src="${item.photo}" alt="${item.name}"/><div class="menu-img-overlay"></div>`:`<span>${item.emoji||'🍽️'}</span>`}
+      </div>
+      <div class="menu-body">
+        <h3>${item.name}</h3>
+        <p>${item.desc||''}</p>
+        <div class="menu-footer">
+          <span class="price">$${Number(item.price).toFixed(2)}</span>
+          <button class="add-btn" onclick="addToCart(${item.id},this)">+ Add</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function filterMenu(cat,el){
+  activeCategory=cat;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  renderMenu(cat);
+}
+
+// ── CART ──────────────────────────────────────────────────────
+function addToCart(id,btn){
+  cart[id]=(cart[id]||0)+1;updateCartUI();
+  btn.textContent='✓ Added';btn.style.background='#2d6e50';
+  setTimeout(()=>{btn.textContent='+ Add';btn.style.background='var(--teal)'},800);
+}
+function updateCartUI(){
+  document.getElementById('cartCount').textContent=Object.values(cart).reduce((a,b)=>a+b,0);
+  renderCart();
+}
+function renderCart(){
+  const items=Object.entries(cart).filter(([,q])=>q>0);
+  const empty=document.getElementById('cartEmpty'),layout=document.getElementById('orderLayout');
+  if(!items.length){empty.style.display='block';layout.style.display='none';return;}
+  empty.style.display='none';layout.style.display='grid';
+  let html='',total=0;
+  items.forEach(([id,qty])=>{
+    const item=menuData.find(m=>m.id==id);if(!item)return;
+    const sub=Number(item.price)*qty;total+=sub;
+    const thumb=item.photo
+      ?`<img src="${item.photo}" style="width:44px;height:44px;border-radius:8px;object-fit:cover">`
+      :`<div class="cart-item-thumb">${item.emoji||'🍽️'}</div>`;
+    html+=`<div class="cart-item">${thumb}
+      <div class="cart-item-info"><h4>${item.name}</h4><p>$${Number(item.price).toFixed(2)} each</p></div>
+      <div class="qty-ctrl">
+        <button class="qty-btn" onclick="changeQty(${id},-1)">−</button>
+        <span style="min-width:20px;text-align:center;font-size:0.9rem">${qty}</span>
+        <button class="qty-btn" onclick="changeQty(${id},1)">+</button>
+      </div>
+      <button class="remove-btn" onclick="removeItem(${id})">✕</button>
+    </div>`;
+  });
+  document.getElementById('cartItems').innerHTML=html;
+  document.getElementById('cartTotal').textContent=`$${total.toFixed(2)}`;
+}
+function changeQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];updateCartUI();}
+function removeItem(id){delete cart[id];updateCartUI();}
+
+// ── ORDER ─────────────────────────────────────────────────────
+function buildOrderSummary(){
+  let lines=[],total=0;
+  Object.entries(cart).filter(([,q])=>q>0).forEach(([id,qty])=>{
+    const item=menuData.find(m=>m.id==id);if(!item)return;
+    const sub=Number(item.price)*qty;total+=sub;
+    lines.push(`${item.emoji||''} ${qty}x ${item.name} — $${sub.toFixed(2)}`);
+  });
+  lines.push(`\nTOTAL: $${total.toFixed(2)}`);
+  return lines.join('\n');
+}
+async function placeOrder(){
+  const name=document.getElementById('fname').value.trim();
+  const phone=document.getElementById('fphone').value.trim();
+  if(!name||!phone){alert('Please enter your name and phone number.');return;}
+  if(!Object.keys(cart).length){alert('Your cart is empty!');return;}
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true;btn.innerHTML='<span class="spinner"></span>Sending order...';
+  const payload={_subject:`🌺 New Order from ${name}!`,name,phone,
+    type:document.getElementById('ftype').value==='delivery'?'Delivery':'Pickup',
+    address:document.getElementById('faddress').value.trim()||'N/A',
+    notes:document.getElementById('fnotes').value.trim()||'None',
+    order:buildOrderSummary()};
+  try{
+    if(FORMSPREE_ID==='YOUR_FORM_ID'){await new Promise(r=>setTimeout(r,1200));}
+    else{const res=await fetch(`https://formspree.io/f/${FORMSPREE_ID}`,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});if(!res.ok)throw new Error();}
+    cart={};updateCartUI();
+    ['fname','fphone','fnotes','faddress'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('successModal').classList.add('show');
+  }catch(e){alert('Oops! Something went wrong. Please try again or text Shannon directly.');}
+  finally{btn.disabled=false;btn.innerHTML='🌺 Place My Order';}
+}
+function closeSuccess(){document.getElementById('successModal').classList.remove('show');showPage('home',document.querySelectorAll('.nav-links button')[0]);}
+
+// ── ADMIN ─────────────────────────────────────────────────────
+function adminLogin(){
+  if(document.getElementById('adminPw').value===ADMIN_PASSWORD){
+    loggedIn=true;
+    document.getElementById('adminLogin').style.display='none';
+    document.getElementById('adminDashboard').style.display='block';
+    renderAdminItems();
+  }else{document.getElementById('loginErr').style.display='block';}
+}
+function adminLogout(){
+  loggedIn=false;
+  document.getElementById('adminLogin').style.display='block';
+  document.getElementById('adminDashboard').style.display='none';
+  document.getElementById('adminPw').value='';
+  document.getElementById('loginErr').style.display='none';
+}
+function renderAdminItems(){
+  document.getElementById('dishCount').textContent=menuData.length;
+  if(!menuData.length){document.getElementById('adminItems').innerHTML='<p style="color:rgba(255,255,255,0.4);font-size:0.88rem">No dishes yet. Add your first dish below!</p>';return;}
+  document.getElementById('adminItems').innerHTML=menuData.map(item=>`
+    <div class="admin-item">
+      <div class="admin-item-img">${item.photo?`<img src="${item.photo}" style="width:48px;height:48px;border-radius:8px;object-fit:cover">`:(item.emoji||'🍽️')}</div>
+      <div class="admin-item-info"><strong>${item.name}</strong><span>$${Number(item.price).toFixed(2)} · ${catLabels[item.cat]||item.cat}</span></div>
+      <div class="admin-item-actions">
+        <button class="toggle-available" onclick="toggleAvail(${item.id})" title="${item.available?'Hide':'Show'}">${item.available?'✅':'❌'}</button>
+        <button class="icon-btn" onclick="openEdit(${item.id})">✏️ Edit</button>
+        <button class="icon-btn del" onclick="deleteDish(${item.id})">🗑️</button>
+      </div>
+    </div>`).join('');
+}
+function toggleAvail(id){const item=menuData.find(m=>m.id===id);if(item){item.available=!item.available;saveMenu();renderAdminItems();}}
+function deleteDish(id){if(!confirm('Delete this dish?'))return;menuData=menuData.filter(m=>m.id!==id);saveMenu();renderAdminItems();}
+
+function previewPhoto(input){
+  const file=input.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{newPhotoData=e.target.result;const img=document.getElementById('photoPreview');img.src=newPhotoData;img.style.display='block';document.getElementById('photoUploadPrompt').textContent='✅ Photo ready!';};
+  reader.readAsDataURL(file);
+}
+function previewEditPhoto(input){
+  const file=input.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{editPhotoData=e.target.result;const img=document.getElementById('editPhotoPreview');img.src=editPhotoData;img.style.display='block';document.getElementById('editPhotoPrompt').textContent='✅ New photo ready!';};
+  reader.readAsDataURL(file);
+}
+function addDish(){
+  const name=document.getElementById('newName').value.trim();
+  const price=document.getElementById('newPrice').value;
+  const msg=document.getElementById('addMsg');
+  if(!name||!price){msg.style.display='block';msg.style.color='#e8714a';msg.textContent='Please enter at least a name and price.';return;}
+  menuData.push({id:Date.now(),name,price:Number(price),cat:document.getElementById('newCat').value,desc:document.getElementById('newDesc').value.trim(),emoji:'🍽️',photo:newPhotoData||null,available:true});
+  saveMenu();renderAdminItems();
+  document.getElementById('newName').value='';document.getElementById('newPrice').value='';document.getElementById('newDesc').value='';
+  document.getElementById('photoPreview').style.display='none';
+  document.getElementById('photoUploadPrompt').textContent='📷 Tap to upload a photo from your phone or computer';
+  newPhotoData=null;
+  msg.style.display='block';msg.style.color='var(--teal-light)';msg.textContent=`✅ "${name}" added to the menu!`;
+  setTimeout(()=>msg.style.display='none',3000);
+}
+function openEdit(id){
+  const item=menuData.find(m=>m.id===id);if(!item)return;
+  editPhotoData=null;
+  document.getElementById('editId').value=id;
+  document.getElementById('editName').value=item.name;
+  document.getElementById('editPrice').value=item.price;
+  document.getElementById('editCat').value=item.cat;
+  document.getElementById('editDesc').value=item.desc||'';
+  document.getElementById('editPhotoPreview').style.display='none';
+  document.getElementById('editPhotoPrompt').textContent='📷 Upload new photo (leave blank to keep current)';
+  document.getElementById('editModal').classList.add('show');
+}
+function saveEdit(){
+  const id=Number(document.getElementById('editId').value);
+  const item=menuData.find(m=>m.id===id);if(!item)return;
+  item.name=document.getElementById('editName').value.trim()||item.name;
+  item.price=Number(document.getElementById('editPrice').value)||item.price;
+  item.cat=document.getElementById('editCat').value;
+  item.desc=document.getElementById('editDesc').value.trim();
+  if(editPhotoData)item.photo=editPhotoData;
+  saveMenu();renderAdminItems();
+  document.getElementById('editModal').classList.remove('show');
+}
+function closeEdit(){document.getElementById('editModal').classList.remove('show');}
+
+// ── NAV & SECRET ADMIN ────────────────────────────────────────
+function showPage(id,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-links button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  if(btn)btn.classList.add('active');
+  if(id==='menu'){renderMenuTabs();renderMenu(activeCategory);}
+  if(id==='order')renderCart();
+  window.scrollTo(0,0);
+}
+
+document.getElementById('logoBtn').addEventListener('click',()=>{
+  logoTaps++;
+  if(logoTaps>=5){logoTaps=0;showPage('admin',null);}
+  setTimeout(()=>{if(logoTaps<5)logoTaps=0;},2000);
+});
+
+loadMenu();renderMenuTabs();renderMenu('all');
+</script>
+</body>
+</html>
